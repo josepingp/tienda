@@ -1,0 +1,109 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --linen: #F4EBE4ff;
+    --champagne-pink: #ECDFD7ff;
+    --eerie-black: #1D1D1Aff;
+    --black-olive: #45423Eff;
+    --champagne-pink-2: #DAC7BF;
+    --logo-color: #3a1d0d;
+    --fondo-color: rgb(245, 231, 225);
+    --yogi: yogi;
+    --theano: theano;
+}
+
+header {
+    display: flex;
+    height: 70px;
+    position: sticky;
+    top: 0;
+    padding: 10px 15px;
+    background-color: var(--champagne-pink-2);
+    justify-content: space-between;
+}
+
+#header-logo {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    align-items: center;
+    font-family: var(--yogi);
+}
+
+#header-nav-logo {
+    width: 50px;
+    height: 50px;
+}
+
+#header-nav {
+    display: flex;
+    height: 100%;
+    gap: 50px;
+}
+
+#header-nav-text ul {
+    display: flex;
+    list-style: none;
+    gap: 10px;
+    margin-right: 20px;
+    align-items: last baseline;
+    height: 100%;
+}
+
+#header-nav-text ul li {
+    padding: 5px 10px;
+    text-align: center;
+}
+
+#header-nav-text ul li:hover {
+    background-color: var(--black-olive);
+}
+
+#header-nav-text ul li:hover a {
+    color: var(--champagne-pink);
+}
+
+#header-nav-text ul a {
+    text-decoration: none;
+    color: var(--logo-color);
+    font-weight: 600;
+    cursor: pointer;
+}
+
+#header-nav-icons {
+    display: flex;
+    list-style: none;
+    gap: 10px;
+    margin-right: 20px;
+    align-items: last baseline;
+    height: 100%;
+}
+
+.header-icon-container {
+    display: flex;
+    align-items: center;
+    background-color: var(--champagne-pink);
+    padding:5px;
+    border-radius: 50%;
+}
+
+.header-icon-container .material-symbols-outlined {
+    font-weight: 500;
+}
+
+
+
+
+@font-face {
+    font-family: yogi;
+    src: url(../assets/fonts/Kohelet_Regular.ttf);
+}
+
+@font-face {
+    font-family: theano;
+    src: url(../assets/fonts/TheanoDidot-Regular.ttf);
+}
