@@ -9,12 +9,12 @@ class Rol
     ) {
     }
 
-    public function getId(): string
+    public function getId(): int
     {
-        return $this->id;
+        return (int) $this->id;
     }
 
-    public function setId(string $id): void
+    public function setId(int $id): void
     {
         $this->id = $id;
     }
@@ -29,7 +29,7 @@ class Rol
         return $this->role_name;
     }
 
-    public static function create(array $data): Rol
+    public static function fromArray(array $data): Rol
     {
         return new Rol($data['id'], $data['role_name']);
     }

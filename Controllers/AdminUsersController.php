@@ -1,21 +1,20 @@
 <?php
 namespace Controllers;
 
-require_once "./Lib/pages.php";
-require_once "./Services/UsersService.php";
-
-
+use Services\RolesService;
 use Services\UsersService;
 use Lib\Pages;
 
-class UsersController
+class AdminUsersController
 {
     private UsersService $service;
+    private RolesService $rolesService;
     private Pages $pages;
 
     public function __construct()
     {
         $this->service = new UsersService();
+        $this->rolesService = new RolesService();
         $this->pages = new Pages();
     }
 
@@ -27,6 +26,7 @@ class UsersController
 
     public function add(): void
     {
-        $this->pages->render('new_user');
+        $roles = $this->rolesService->getAll();
+        $this->pages->render('new_user', ['roles' => $roles]);
     }
 }

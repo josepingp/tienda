@@ -1,12 +1,9 @@
 <?php
 namespace Repositories;
 
-require_once "./Lib/Db.php";
-require_once "./Models/User.php";
-
 use Lib\Db;
 use Models\User;
-use Models\rol;
+
 
 class UsersRepository {
     
@@ -16,16 +13,16 @@ class UsersRepository {
         $this->conexion = new Db();
     }
 
-    public function findAll(): ?array {
+    public function findAllUsers(): ?array {
         $this->conexion->query("SELECT * FROM users");
-        return $this->getAll();
+        return $this->getAllUsers();
     }
 
     public function get(): ?User {
         return ($user = $this->conexion->get()) ? User::fromArray( $user ) : null;
     }
 
-    public function getAll(): ?array {
+    public function getAllUsers(): ?array {
         $users = [];
         $usersData =  $this->conexion->getAll();
 

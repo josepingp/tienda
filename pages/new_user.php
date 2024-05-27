@@ -1,14 +1,3 @@
-<?php
-use Lib\Db;
-
-$cnx = new Db();
-$cnx->query("SELECT * FROM roles");
-$user = $cnx->getAll();
-var_dump($user);
-
-
-?>
-
 <div class="container mb-5">
     <h1 class="title">Usuarios</h1>
     <h2 class="subtitle">Nuevo Usuario</h2>
@@ -49,8 +38,9 @@ var_dump($user);
             <label for="input-rol">Rol</label>
             <select name="role_id" id="input-rol" class="form-control">
                 <option value="">elige un rol</option>
-
-                <option value=""></option>
+                <?php foreach ($roles as $role): ?>
+                    <option value="<?= $role->getId(); ?>"><?= $role->getRoleName(); ?></option>
+                <?php endforeach; ?>
 
             </select>
         </div>
@@ -68,5 +58,8 @@ var_dump($user);
         </div>
     </div>
 
+    <div class="d-flex justify-content-center">
+        <button type="submit" class="btn btn-primary w-25">Registrar</button>
+    </div>
 
 </form>

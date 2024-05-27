@@ -1,7 +1,6 @@
 <?php
 namespace Services;
 
-require_once "./Repositories/UsersRepository.php";
 use Repositories\UsersRepository;
 
 class UsersService {
@@ -13,6 +12,6 @@ class UsersService {
     }
 
     public function findAll(): ?array {
-        return $this->repositories->findAll();
+        return $this->repositories->findAllUsers();
     }
 }
