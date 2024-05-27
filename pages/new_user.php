@@ -7,22 +7,22 @@
 <div class="form-rest" mb-6 mt-6></div>
 
 
-<form action="" method="POST" class="container row-gap-3">
+<form action="" method="POST" class="container row-gap-3 ajax_form">
     <div class="row px-3 mb-2">
         <div class="col">
             <label for="input_name">Nombre</label>
-            <input type="text" name="name" id="input_name" pattern="[a-zA-ZáéíóúÁÉÍÓÚñÑ]{3,40}" class="form-control"
+            <input type="text" name="name" id="input_name" pattern="[a-zA-ZáéíóúÁÉÍÓÚñÑ ]{3,40}" class="form-control"
                 aria-label="First name" required>
         </div>
         <div class="col">
             <label for="lname1">Primer apellido</label>
-            <input type="text" name="last_name1" id="lname1" pattern="[a-zA-ZáéíóúÁÉÍÓÚñÑ]{3,40}" class="form-control"
+            <input type="text" name="last_name1" id="lname1" pattern="[a-zA-ZáéíóúÁÉÍÓÚñÑ ]{3,40}" class="form-control"
                 aria-label="Last name" required>
         </div>
         <div class="col">
             <label for="lname2">Segundo apellido</label>
-            <input type="text" name="last_name2" id="lname2" pattern="[a-zA-ZáéíóúÁÉÍÓÚñÑ]{3,40}" class="form-control"
-                aria-label="Last name" required>
+            <input type="text" name="last_name2" id="lname2" pattern="[a-zA-ZáéíóúÁÉÍÓÚñÑ ]{3,40}" class="form-control"
+                aria-label="Last name">
         </div>
     </div>
     <div class="row px-3 mb-2">

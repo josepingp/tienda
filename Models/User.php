@@ -11,12 +11,12 @@ class User
         private string $lastName2,
         private string $email,
         private string $birthDate,
-        private ?string $phoneNumber = null,
         private string $dateRegistered,
-        private ?string $photo = null,
         private string $pass,
+        private string $rol = '3',
+        private ?string $photo = null,
+        private ?string $phoneNumber = null,
         private ?string $numCard = null,
-        private string $rol = '3'
     ) {
     }
 
@@ -154,12 +154,12 @@ class User
             $data['last_name2'],
             $data['email'],
             $data['birth_date'],
-            $data['phone'],
             $data['date_registered'],
-            $data['photo_url'],
             $data['password'],
+            $data['role_id'],
+            $data['photo_url'],
+            $data['phone'],
             $data['card_number'],
-            $data['role_id']
         );
     }
 }

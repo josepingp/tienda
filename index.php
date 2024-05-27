@@ -18,6 +18,11 @@ Router::add('GET', '/admin_users/new_user', function () {
     // return 'el enrutador funciona';
 });
 
+Router::add('POST', '/admin_users/new_user', function () {
+    return (new AdminUsersController())->SaveUser();
+    // return 'el enrutador funciona';
+});
+
 Router::dispatch();
 
 

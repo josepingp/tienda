@@ -2,6 +2,7 @@
 namespace Services;
 
 use Repositories\UsersRepository;
+use Models\User;
 
 class UsersService {
 
@@ -13,5 +14,13 @@ class UsersService {
 
     public function findAll(): ?array {
         return $this->repositories->findAllUsers();
+    }
+
+    public function findUserByEmail(string $email): ?User {
+        return $this->repositories->findUserByEmail($email);
+    }
+
+    public function save(array $user): void {
+        $this->repositories->save($user);
     }
 }
