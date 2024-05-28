@@ -23,6 +23,11 @@ Router::add('POST', '/admin_users/new_user', function () {
     // return 'el enrutador funciona';
 });
 
+Router::add('GET', '/admin_users/user/:id', function ($userId) {
+    return (new AdminUsersController())->editUser($userId);
+    // return 'el enrutador funciona';
+});
+
 Router::dispatch();
 
 

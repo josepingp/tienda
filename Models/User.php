@@ -145,7 +145,7 @@ class User
         return $this->getName(). ' ' .$this->getLastName1(). ' ' .$this->getLastName2();
     }
 
-    public static function fromArray(array $data)
+    public static function fromArray(array $data) :User
     {
         return new User(
             $data["id"],
@@ -163,15 +163,3 @@ class User
         );
     }
 }
-// private string $id,
-// private string $name,
-// private string $lastName1,
-// private string $lastName2,
-// private string $email,
-// private string $birthDate,
-// private string $phoneNumber,
-// private string $dateRegistered,
-// private string $pass,
-// private string $rol = 3,
-// private string $photo = null,
-// private string $numCard = null,

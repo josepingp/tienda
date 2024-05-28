@@ -28,6 +28,12 @@ class UsersRepository
         return $this->get();
     }
 
+    public function findUserById(int $id): ?User
+    {
+        $this->conexion->query("SELECT * FROM users WHERE id = $id");
+        return $this->get();
+    }
+
 
     public function get(): ?User
     {
@@ -47,8 +53,8 @@ class UsersRepository
 
     public function save(array $user): void
     {
-        $fields = implode(",", array_keys($user['user']));
-        $values = implode("', '", array_values($user['user']));
+        $fields = implode(",", array_keys($user));
+        $values = implode("', '", array_values($user));
 
         $this->conexion->query("INSERT INTO users ($fields) VALUES ('$values')");
     }

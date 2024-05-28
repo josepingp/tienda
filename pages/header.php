@@ -63,7 +63,7 @@
                             ADMINISTRACIÓN
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="">USUARIOS</a></li>
+                            <li><a class="dropdown-item" href="/proyecto/admin_users">USUARIOS</a></li>
                             <li><a class="dropdown-item" href="#">PRODUCTOS</a></li>
                         </ul>
                     </li>

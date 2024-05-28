@@ -4,7 +4,7 @@
     <?php require_once "./inc/back_button.php"; ?>
 </div>
 
-<div class="form-rest" mb-6 mt-6></div>
+<div class="d-flex justify-content-center aling-content-center w-100" ><?php if(isset($msg)) echo $msg;  ?></div>
 
 
 <form action="" method="POST" class="container row-gap-3 ajax_form">

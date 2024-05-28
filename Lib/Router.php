@@ -21,7 +21,7 @@ class Router
         preg_match('/[0-9]+$/', $action, $match);
         if (!empty($match)) {
             $param = $match[0];
-            preg_replace('/' . $match[0] . '/', ':id', $action);
+            $action =  preg_replace('/' . $match[0] . '/', ':id', $action);
         }
 
         $callback = self::$routes[$method][$action];

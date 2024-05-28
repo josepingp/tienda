@@ -20,6 +20,10 @@ class UsersService {
         return $this->repositories->findUserByEmail($email);
     }
 
+    public function findUserById(string $Id): ?User {
+        return $this->repositories->findUserById($Id);
+    }
+
     public function save(array $user): void {
         $this->repositories->save($user);
     }
