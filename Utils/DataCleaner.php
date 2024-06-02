@@ -54,6 +54,31 @@ class DataCleaner
     }
 
 
+    public static function limpiarCadena($cadena)
+    {
+        // Reemplazar letras con tildes por letras sin tildes
+        $acentos = array(
+            'á' => 'a',
+            'é' => 'e',
+            'í' => 'i',
+            'ó' => 'o',
+            'ú' => 'u',
+            'Á' => 'A',
+            'É' => 'E',
+            'Í' => 'I',
+            'Ó' => 'O',
+            'Ú' => 'U',
+            'ñ' => 'n',
+            'Ñ' => 'N'
+        );
+        $cadena = strtr($cadena, $acentos);
+
+        // Eliminar espacios y caracteres extraños que no sean letras del alfabeto latino básico o números
+        $cadena = preg_replace('/[^a-zA-Z0-9.]/', '', $cadena);
+
+        return $cadena;
+    }
+
 
 
 }

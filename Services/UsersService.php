@@ -20,7 +20,7 @@ class UsersService {
         return $this->repositories->findUserByEmail($email);
     }
 
-    public function findUserById(string $Id): ?User {
+    public function findUserById(int $Id): ?User {
         return $this->repositories->findUserById($Id);
     }
 

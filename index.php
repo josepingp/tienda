@@ -1,6 +1,4 @@
 <?php
-include "pages/header.php";
-
 require_once "./inc/autoloader.php";
 require_once "config.php";
 
@@ -23,7 +21,12 @@ Router::add('POST', '/admin_users/new_user', function () {
     // return 'el enrutador funciona';
 });
 
-Router::add('GET', '/admin_users/user/:id', function ($userId) {
+Router::add('POST', '/admin_users/user/:id', function () {
+    return (new AdminUsersController())->SaveUser();
+    // return 'el enrutador funciona';
+});
+
+Router::add('GET', '/admin_users/new_user/:id', function ($userId) {
     return (new AdminUsersController())->editUser($userId);
     // return 'el enrutador funciona';
 });

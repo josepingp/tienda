@@ -4,7 +4,7 @@
     <nav class="navbar bg-body-tertiary w-100">
 
         <form class="container-fluid" role="search">
-        <div class="d-flex justify-content-center aling-content-center w-100" ><?php if(isset($msg)) echo $msg;  ?></div>
+        <div class="d-flex justify-content-center aling-content-center w-100" ><?php if (isset($msg)) echo $msg;  ?></div>
             <div class="d-flex w-100">
             
 
@@ -59,7 +59,7 @@
                             Pedidos
                         </button>
                         </td>
-                        <td> <a href="/proyecto/admin_users/user/<?= $user->getId()?>" class=""><img src="./assets/img/pencil-square.svg" alt=""></a> </td>
+                        <td> <a href="/proyecto/admin_users/new_user/<?= $user->getId()?>" class=""><img src="./assets/img/pencil-square.svg" alt=""></a> </td>
                 </tr>
                 <?php
                 $counter = $counter + 1;

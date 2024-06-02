@@ -1,0 +1,577 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --white: #F9F5F3;
+    --black: #301b1a;
+    --primary: #ECDFD7ff;
+    --secondary: #bd8b7a;
+    --third: #a36053;
+    --medium: #6e413e;
+    --contrast: #3a1d0d;
+    --fondo-color: rgb(245, 231, 225);
+    --yogi: yogi;
+    --theano: theano;
+}
+
+
+
+/* MOBILE HEADER */
+#m-nav {
+    background-color: var(--secondary);
+    padding: .3rem;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+}
+
+.nav-brand {
+    display: inline-flex;
+    align-items: center;
+    gap: .3rem;
+    font-family: var(--yogi);
+    color: var(--contrast);
+    font-size: 1.5rem;
+}
+
+.nav-brand p {
+    margin-top: .5rem;
+}
+
+.icon-menu-container {
+    min-height: 90%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.menu-icon {
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+}
+
+.menu-icon path {
+    stroke: var(--contrast);
+    stroke-width: 5;
+    stroke-linecap: round;
+    transition: all .3s;
+    transform: rotate(0deg);
+    will-change: transform, opacity;
+    transform-origin: center;
+}
+
+.icon-menu-responsive-link:hover path,
+.icon-menu-responsive-link:focus path,
+.icon-menu-responsive-link:active path {
+    stroke: var(--contrast);
+}
+
+.menu-icon.active path:nth-child(1) {
+    opacity: 0;
+}
+
+.menu-icon.active path:nth-child(4) {
+    opacity: 0;
+}
+
+.menu-icon.active path:nth-child(2) {
+    transform: rotate(45deg);
+}
+
+.menu-icon.active path:nth-child(3) {
+    transform: rotate(-45deg);
+}
+
+#nav-m-links {
+    display: flex;
+    flex-direction: column;
+    width: 100svw;
+    height: auto;
+    min-height: 96svh;
+    background-color: var(--medium);
+    position: absolute;
+    padding: 1.5rem;
+    right: 100%;
+    transition: transform .5s;
+    padding-top: 3rem;
+    z-index: 2;
+}
+
+.menu-icon.active~#nav-m-links {
+    transform: translateX(100%);
+}
+
+.nav-m-item,
+.nav-m-item-dropdown {
+    list-style: none;
+    border-bottom: 1px solid var(--primary);
+    margin-bottom: 10px;
+}
+
+.d-dropdown-arrow-down,
+.dropdown-arrow-down {
+    fill: var(--primary);
+    rotate: -90deg;
+    position: relative;
+    top: .4rem;
+    left: .7rem;
+}
+
+.d-dropdown-arrow-up,
+.dropdown-arrow-up {
+    fill: var(--primary);
+    rotate: 90deg;
+    position: relative;
+    top: .4rem;
+    left: .7rem;
+    display: none;
+}
+
+.nav-m-link {
+    text-decoration: none;
+    color: var(--primary);
+    font-family: var(--theano);
+    font-size: 1.3rem;
+    display: flex;
+}
+
+.dropdown-menu {
+    gap: .7rem;
+    list-style: none;
+    margin: 10px 10px;
+    display: none;
+}
+
+.dropdown-toggle.active .dropdown-arrow-down {
+    display: none;
+}
+
+.dropdown-toggle.active .dropdown-arrow-up {
+    display: inline;
+}
+
+.dropdown-toggle.active~.dropdown-menu {
+    display: grid;
+    padding: 10px 7px;
+}
+
+.dropdown-m-item {
+    color: var(--primary);
+    text-decoration: none;
+    font-size: 1.2rem;
+    font-family: var(--theano);
+}
+
+.social-media {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    margin-top: 1.3rem;
+    font-family: var(--theano);
+    color: var(--primary);
+}
+
+.social-media-icons {
+    border: none;
+    margin-bottom: 1rem;
+    padding: 1rem;
+    display: flex;
+    justify-content: space-around;
+}
+
+.social-media-icons div {
+    background-color: var(--primary);
+    border-radius: 100%;
+    display: flex;
+}
+
+.youtube-div {
+    position: relative;
+    background-color: var(--primary);
+    width: 1.5rem;
+    height: 1rem;
+    top: .5rem;
+
+}
+
+.youtube-icon {
+    position: absolute;
+    width: 40px;
+    right: -9px;
+    bottom: -8px;
+}
+
+/* DESKTOP HEADER */
+#d-header {
+    display: none;
+    padding: .3rem 1rem;
+}
+
+.d-navbar {
+    display: flex;
+    align-items: flex-end;
+    /* background-color: var(--secondary); */
+    width: 100%;
+}
+
+.d-navbar-links {
+    display: flex;
+    list-style: none;
+    align-items: center;
+    font-family: var(--theano);
+    font-size: 1.4rem;
+    gap: 1.5rem;
+    margin-left: 2rem;
+    margin-bottom: .2rem;
+}
+
+.d-navbar-link a::before {
+    content: '';
+    display: block;
+    width: 0%;
+    height: 2px;
+    background-color: var(--contrast);
+    transition: all .3s;
+    position: absolute;
+    bottom: 5px;
+    left: 50%;
+}
+
+.d-navbar-link a:hover::before {
+    left: 0;
+    width: 100%;
+}
+
+.d-navbar-link a {
+    text-decoration: none;
+    color: var(--contrast);
+    position: relative;
+}
+
+.d-navbar-link.drop {
+    position: relative;
+    cursor: pointer;
+}
+
+.d-navbar-link.drop:hover a .d-dropdown-arrow-down {
+    display: none;
+}
+
+.d-navbar-link.drop:hover a .d-dropdown-arrow-up {
+    display: inline;
+}
+
+.d.dropdown-menu {
+    position: absolute;
+    top: 70%;
+}
+
+.d-navbar-link.drop:hover .d.dropdown-menu {
+    display: block;
+    background-color: var(--secondary);
+}
+
+.d-dropdown-arrow-up,
+.d-dropdown-arrow-down {
+    width: 1rem;
+    left: 0;
+    top: .5rem;
+    fill: var(--contrast);
+}
+
+.dropdown-d-item {
+    padding: 1rem;
+    display: block;
+}
+
+.d-navbar2-container {
+    display: flex;
+    gap: .5rem;
+    position: relative;
+}
+
+.cart-link {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 1000px;
+    padding: .3rem;
+}
+
+.icon-shopping-cart:hover {
+    border: 1px solid var(--third);
+    background-color: var(--primary);
+    stroke: var(--third);
+}
+
+.icon-shopping-cart {
+    fill: none;
+    stroke: var(--primary);
+    background-color: var(--third);
+    padding: .3rem;
+    border-radius: 100px;
+    margin-bottom: .1rem;
+    width: 3rem;
+    height: 3rem;
+}
+
+.icon-login-container {
+    height: 100%;
+}
+
+.login-link {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--third);
+    text-decoration: none;
+    font-family: var(--theano);
+    font-size: large;
+    font-weight: 500;
+    padding: .3rem;
+    border-radius: 20px;
+    border: 1px solid var(--third);
+    margin-top: .1rem;
+    color: var(--primary);
+    gap: .3rem;
+}
+
+.login-link:hover {
+    background-color: var(--primary);
+    color: var(--contrast);
+}
+
+.default-log-img {
+    width: 40px;
+    border-radius: 100px;
+}
+
+#login-container {
+    background-color: var(--secondary);
+    position: absolute;
+    top: 4.5rem;
+    right: .5rem;
+    padding: 2rem 1rem;
+    max-width: 435px;
+    min-width: 300px;
+    border-radius: 15px;
+    z-index: 2;
+}
+
+#login-container.hidden {
+    display: none;
+}
+
+.login-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    width: 100%;
+}
+
+#login-btns {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    gap: 1px;
+}
+
+.close-modal {
+    position: absolute;
+    top: .5rem;
+    right: 1rem;
+    font-family: var(--theano);
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--contrast);
+    padding: .3rem;
+    background: none;
+    border: none;
+}
+
+.login-label {
+    width: 100%;
+    font-family: var(--theano);
+    color: var(--primary);
+    font-size: 1.1rem;
+}
+
+.login-input {
+    margin-bottom: .5rem;
+    font-size: 1.1rem;
+    padding: .1rem;
+    width: 100%;
+}
+
+.create-account,
+.login-button {
+    margin: .5rem 0;
+    background: none;
+    background-color: var(--primary);
+    padding: .3rem 0rem;
+    font-family: var(--theano);
+    font-size: .9rem;
+    border: none;
+    padding: .8rem .8rem;
+    text-decoration: none;
+    color: var(--contrast);
+}
+
+.create-account {
+    border-radius: 0 50px 50px 0;
+}
+
+.login-button {
+    border-radius: 50px 0 0 50px;
+}
+
+.login-button:hover,
+.create-account:hover {
+    background-color: var(--third);
+    color: var(--primary);
+}
+
+/* HOME */
+/* BANNER */
+
+.banner {
+    width: 100%;
+    padding: 1rem;
+    display: flex;
+    justify-content: center;
+}
+
+.banner-container {
+    position: relative;
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    max-width: 1800px;
+    z-index: 1;
+}
+
+.banner img {
+    width: 100%;
+}
+
+.banner-link {
+    position: absolute;
+    bottom: .5rem;
+    left: .5rem;
+    text-decoration: none;
+    color: var(--contrast);
+    font-family: var(--theano);
+    background-color: #ECDFD7aa;
+    padding: .3rem;
+    border-radius: 20px;
+    display: none;
+}
+
+.banner-phrase {
+    position: absolute;
+    top: 10%;
+    left: 20%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: var(--theano);
+    font-size: .8em;
+    font-weight: 600;
+    color: var(--third);
+}
+
+
+
+
+
+
+
+@media (min-width: 500px) {
+    .banner-link {
+        display: flex;
+    }
+
+    .banner-phrase {
+        font-size: 1.1rem;
+    }
+}
+
+@media (min-width: 850px) {
+    .banner-link {
+        display: flex;
+    }
+
+    .banner-phrase {
+        font-size: 2rem;
+    }
+}
+
+@media (min-width: 1030px) {
+    #d-header {
+        display: flex;
+        background-color: var(--secondary);
+        ;
+    }
+
+    .login-label {
+        color: var(--contrast);
+    }
+
+    #m-header {
+        display: none;
+    }
+
+    .login-container h2 {
+        font-family: var(--yogi);
+        font-size: 2.5rem;
+        text-wrap: nowrap;
+    }
+
+    .banner-link {
+        display: flex;
+        font-size: 1.5rem;
+        padding: .5rem;
+        color: var(--contrast);
+        
+    }
+    .banner {
+        width: 100%;
+        padding: 1rem;
+        display: flex;
+        justify-content: center;
+    }
+}
+
+@media (min-width: 1450px) {
+    .banner-phrase {
+        font-size: 2.5rem;
+    }
+}
+
+body {
+    background-color: var(--primary);
+}
+
+
+
+
+
+@font-face {
+    font-family: yogi;
+    src: url(./assets/fonts/groening.ttf);
+}
+
+@font-face {
+    font-family: theano;
+    src: url(./assets/fonts/Khyay-Regular.ttf);
+}

@@ -1,5 +1,7 @@
 <?php
 var_dump($user);
+$photo = $user->getPhoto();
+echo $photo;
 ?>
 
 <div class="container mb-5">
@@ -10,8 +12,14 @@ var_dump($user);
 
 <div class="d-flex justify-content-center aling-content-center w-100" ><?php if(isset($msg)) echo $msg;  ?></div>
 
-
 <form action="" method="POST" class="container row-gap-3 ajax_form">
+    <input type="hidden" name="id" value="<?= $user->getId();?> ">
+<?php
+    if ($photo != '') {
+    echo "<img src='../../repo/user/$photo' alt=''>";
+    }
+    echo $user->getPhoto();
+    ?>
     <div class="row px-3 mb-2">
         <div class="col">
             <label for="input_name">Nombre</label>
