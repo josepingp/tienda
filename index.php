@@ -1,10 +1,24 @@
 <?php
 require_once "./inc/autoloader.php";
+require_once "./vendor/autoload.php";
 require_once "config.php";
 
+use Controllers\HomeController;
 use Lib\Router;
 use Controllers\AdminUsersController;
 
+
+
+
+Router::add('GET', '/', function () {
+    return (new HomeController())->load();
+    // return 'el enrutador funciona';
+});
+
+Router::add('POST', "/", function () {
+    return (new HomeController())->log();
+    // return 'el enrutador funciona';
+});
 
 Router::add('GET', '/admin_users', function () {
     return (new AdminUsersController())->list();

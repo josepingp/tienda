@@ -287,7 +287,20 @@ class AdminUsersController
         ];
 
         if (is_null($user['id']))
-            $user = array_shift($user);
+        $user = [
+            'name' => $name,
+            'last_name1' => $lastName1,
+            'last_name2' => $lastName2,
+            'email' => $email,
+            'birth_date' => $birthDate,
+            'phone' => $phone,
+            'date_registered' => $dateRegistered,
+            'photo_url' => $photoUrl,
+            'password' => $password,
+            'card_number' => $cardNumber,
+            'role_id' => $roleId
+        ];
+        
         if (isset($imgName))
             $user['photo_url'] = $imgName;
 

@@ -2,7 +2,8 @@
 
 
 
-<?php require_once "./inc/script.php"; ?>
-
+<?php 
+require_once "./inc/script.php";
+?>
 </body>
 </html>

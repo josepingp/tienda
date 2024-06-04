@@ -27,4 +27,10 @@ class UsersService {
     public function save(array $user): void {
         $this->repositories->save($user);
     }
+
+    public function userVerify(string $mail, string $pass): bool
+    {
+        $user = $this->repositories->findUserByEmail($mail);
+        return password_verify($pass, $user->getPass());
+    }
 }

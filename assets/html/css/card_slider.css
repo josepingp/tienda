@@ -1,4 +1,3 @@
-
 :root {
     --white: #F9F5F3;
     --black: #301b1a;
@@ -33,50 +32,50 @@ body {
     background-color: var(--primary);
 }
 
-#slider {
-    background-color: var(--primary);
-    width: 100%;
-    position: relative;
-    padding: 1rem;
-    /* margin: 1rem auto; */
-    /* display: flex; */
-    /* justify-content: center; */
+a {
+    text-decoration: none;
+    color: var(--contrast);
+    font-family: var(--theano);
 }
 
-#sliders-container {
-    position: relative;
-    height: 500px;
-    width: 100%;
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    gap: .7rem;
-    overflow-x: auto;
-    scrollbar-width: none;
+.container {
+    margin-top: 300px;
+    display: flex;
+    justify-content: center;
+}
+
+.slider {
+    background-color: var(--primary);
+    margin: 1rem auto;
+}
+
+.sliders-container {
+max-width: 1500px;
 }
 
 .slider-card {
-    top: 0;
-    left: 0;
-    width: inherit;
-    max-width: 400px;
-    min-width: 300px;
+    width: 100%;
     height: 500px;
+    border-radius: 15px;
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .slid-img-cont {
-    height: 70%;
-    width: inherit;
+    height: 300px;
+    overflow: hidden;
+    width: 350px;
 }
 
-.slider-card img {
-    border-radius: 15px 15px 0 0 ;
-    width: inherit;
-    height: 100%;
+.slid-img-cont img {
+    width: 100%;
     object-fit: cover;
-    object-position: 50% 0%; 
+    object-position: 50% 0%;
+    border-radius: 15px 15px 0 0;
 }
+
 
 .data-prd {
     display: flex;
@@ -87,20 +86,43 @@ body {
     gap: .5rem;
     background-color: var(--secondary);
     border-radius: 0 0 15px 15px;
+    width: 350px;
 }
 
 .stars-prd {
-    margin-top: .5rem;
+    margin: .5rem 0;
     display: flex;
     justify-content: space-around;
 }
+
 .stars-prd svg {
-    width: 10%;
-}
-
-@media(min-width: 850px) {
+    width: 8%;
+    filter: drop-shadow(1px 1px 1px rgba(0, 0, 0, 0.75));
 
 }
+
+.swiper-button-prev::after,
+.swiper-button-next::after {
+    color: var(--secondary);
+    font-weight: 600;
+}
+
+.swiper-button-next {
+    top: 40%;
+    right: 0;
+}
+
+.swiper-button-prev {
+    top: 40%;
+    left: 0;
+}
+
+.swiper-pagination-bullet {
+    background-color: var(--secondary);
+    opacity: 1;
+}
+
+@media(min-width: 650px) {}
 
 @font-face {
     font-family: yogi;

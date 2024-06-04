@@ -18,6 +18,9 @@
 }
 
 
+body {
+    background-color: var(--primary);
+}
 
 /* MOBILE HEADER */
 #m-nav {
@@ -26,7 +29,6 @@
     width: 100%;
     display: flex;
     justify-content: space-between;
-    position: relative;
 }
 
 .nav-brand {
@@ -100,7 +102,7 @@
     right: 100%;
     transition: transform .5s;
     padding-top: 3rem;
-    z-index: 2;
+    z-index: 999;
 }
 
 .menu-icon.active~#nav-m-links {
@@ -228,7 +230,7 @@
     font-size: 1.4rem;
     gap: 1.5rem;
     margin-left: 2rem;
-    margin-bottom: .2rem;
+    margin-bottom: .6rem;
 }
 
 .d-navbar-link a::before {
@@ -241,6 +243,7 @@
     position: absolute;
     bottom: 5px;
     left: 50%;
+    z-index: 999;
 }
 
 .d-navbar-link a:hover::before {
@@ -270,6 +273,7 @@
 .d.dropdown-menu {
     position: absolute;
     top: 70%;
+    z-index: 999;
 }
 
 .d-navbar-link.drop:hover .d.dropdown-menu {
@@ -286,7 +290,7 @@
 }
 
 .dropdown-d-item {
-    padding: 1rem;
+    padding: 1.3rem 1rem;
     display: block;
 }
 
@@ -323,6 +327,7 @@
 
 .icon-login-container {
     height: 100%;
+    cursor: pointer;
 }
 
 .login-link {
@@ -445,7 +450,7 @@
 
 .banner {
     width: 100%;
-    padding: 1rem;
+    padding: .5rem;
     display: flex;
     justify-content: center;
 }
@@ -455,7 +460,7 @@
     display: flex;
     width: 100%;
     justify-content: center;
-    max-width: 1800px;
+    max-width: 1500px;
     z-index: 1;
 }
 
@@ -476,6 +481,10 @@
     display: none;
 }
 
+.banner-link:hover {
+    background-color: var(--primary);
+}
+
 .banner-phrase {
     position: absolute;
     top: 10%;
@@ -490,7 +499,165 @@
     color: var(--third);
 }
 
+/* SECTIONS */
+#sections-container {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1%;
+    max-width: 1500px;
+    background-color: var(--secondary);
+    margin: 0 auto;
+    margin-bottom: 1rem;
+}
 
+.section-link {
+    display: flex;
+    width: 200px;
+    background-color: var(--primary);
+    text-align: center;
+    font-family: var(--theano);
+    margin: 1% 0 1% 0;
+    transition: all .3s;
+    filter: drop-shadow(1px 1px 1px rgba(0, 0, 0, 0.75));
+}
+
+.section-link:hover {
+    transform: scale(1.1);
+}
+
+.img-sections-container {
+    width: 100%;
+    height: 87%;
+    display: flex;
+
+}
+
+.section-link-img {
+    object-fit: cover;
+    width: 100%;
+}
+
+.section-tittle-container {
+    height: 20px;
+}
+
+/* SLIDER */
+a {
+    text-decoration: none;
+    color: var(--contrast);
+    font-family: var(--theano);
+}
+
+#home-slider {
+    display: flex;
+    flex-direction: column;
+    max-width: 1500px;
+    justify-content: center;
+    margin: auto;
+
+}
+
+#home-slider #slider-title {
+    font-size: 1.5rem;
+
+    padding: .5rem 0;
+    margin: 0rem 0; 
+    text-align: center;
+    font-family: var(--theano);
+    color: var(--contrast);
+}
+
+.container-slider {
+    display: flex;
+    justify-content: center;
+}
+
+.slider {
+    background-color: var(--primary);
+}
+
+.sliders-container {
+max-width: 500px;
+
+}
+
+.card {
+    width: 100%;
+    height: 420px;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: .5rem;
+    filter: drop-shadow(1px 1px 1px rgba(0, 0, 0, 0.75));
+    transition: all .3s;
+}
+
+.card:hover {
+    transform: scale(1.1);
+}
+
+.card-img-cont {
+    height: 250px;
+    overflow: hidden;
+    width: 300px;
+}
+
+.card-img-cont img {
+    width: 100%;
+    object-fit: cover;
+    object-position: 50% 0%;
+    border-radius: 15px 15px 0 0;
+}
+
+
+.data-prd {
+    display: flex;
+    flex-direction: column;
+    padding: .5rem;
+    font-family: var(--theano);
+    font-size: 1rem;
+    gap: .5rem;
+    background-color: var(--secondary);
+    border-radius: 0 0 15px 15px;
+    width: 300px;
+}
+
+.stars-prd {
+    margin: .5rem 0;
+    display: flex;
+    justify-content: space-around;
+}
+
+.stars-prd svg {
+    width: 8%;
+    filter: drop-shadow(1px 1px 1px rgba(0, 0, 0, 0.75));
+
+}
+
+.swiper-button-prev::after,
+.swiper-button-next::after {
+    color: var(--secondary);
+    font-weight: 600;
+}
+
+.swiper-button-next {
+    top: 40%;
+    right: 0;
+}
+
+.swiper-button-prev {
+    top: 40%;
+    left: 0;
+    z-index: 5;
+}
+
+.swiper-pagination-bullet {
+    background-color: var(--secondary);
+    opacity: 1;
+}
 
 
 
@@ -504,9 +671,21 @@
     .banner-phrase {
         font-size: 1.1rem;
     }
+    
+    .banner {
+        margin: .5rem 0;
+    }
+
+    .card {
+        margin-top: .5rem;
+    }
+
+    .sliders-container {
+        max-width: 670px;
+    }
 }
 
-@media (min-width: 850px) {
+@media (min-width: 800px) {
     .banner-link {
         display: flex;
     }
@@ -514,9 +693,24 @@
     .banner-phrase {
         font-size: 2rem;
     }
+
+    .sliders-container {
+        max-width: 670px;
+    }
+
+    .banner {
+        margin: 1rem 0;
+    }
+
+    .card {
+        margin-top: 1rem;
+    }
+    #sections-container {
+        margin-bottom: 1.5rem;
+    }
 }
 
-@media (min-width: 1030px) {
+@media (min-width: 1024px) {
     #d-header {
         display: flex;
         background-color: var(--secondary);
@@ -546,9 +740,22 @@
     }
     .banner {
         width: 100%;
-        padding: 1rem;
+        margin: 1.5rem 0;
+        padding: 0 1rem;
         display: flex;
         justify-content: center;
+    }
+
+    #sections-container {
+        margin-bottom: 1.5rem;
+    }
+
+    .card {
+        margin-top: 1rem;
+    }
+
+    .sliders-container {
+        max-width: 1070px;
     }
 }
 
@@ -556,11 +763,18 @@
     .banner-phrase {
         font-size: 2.5rem;
     }
+
+    .sliders-container {
+        max-width: 1400px;
+        min-width: 140px;
+    }
+
+    .banner {
+        margin: 2.5rem 0;
+    }
 }
 
-body {
-    background-color: var(--primary);
-}
+
 
 
 
@@ -568,10 +782,10 @@ body {
 
 @font-face {
     font-family: yogi;
-    src: url(./assets/fonts/groening.ttf);
+    src: url(../assets/fonts/groening.ttf);
 }
 
 @font-face {
     font-family: theano;
-    src: url(./assets/fonts/Khyay-Regular.ttf);
+    src: url(../assets/fonts/Khyay-Regular.ttf);
 }

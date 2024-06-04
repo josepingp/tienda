@@ -1,0 +1,80 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --white: #F9F5F3;
+    --black: #301b1a;
+    --primary: #ECDFD7ff;
+    --secondary: #bd8b7a;
+    --third: #a36053;
+    --medium: #6e413e;
+    --contrast: #3a1d0d;
+    --fondo-color: rgb(245, 231, 225);
+    --yogi: yogi;
+    --theano: theano;
+}
+
+
+body {
+    background-color: var(--primary);
+}
+
+a {
+    text-decoration: none;
+    color: var(--contrast);
+    font-family: var(--theano);
+}
+
+#sections-container {
+    width: 100%;
+    padding: .5rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1%;
+    max-width: 1400;
+}
+
+.section-link {
+    display: flex;
+    width: 175px;
+    background-color: var(--secondary);
+    text-align: center;
+    font-family: var(--theano);
+    margin-bottom: 1%;
+    transition: all .3s;
+}
+
+.section-link:hover {
+    transform: scale(1.1);
+}
+
+.img-sections-container {
+    width: 100%;
+    height: 87%;
+    display: flex;
+
+}
+
+.section-link-img {
+    object-fit: cover;
+    width: 100%;
+}
+
+.section-tittle-container {
+    height: 20px;
+}
+
+
+@font-face {
+    font-family: yogi;
+    src: url(./assets/fonts/groening.ttf);
+}
+
+@font-face {
+    font-family: theano;
+    src: url(./assets/fonts/Khyay-Regular.ttf);
+}
