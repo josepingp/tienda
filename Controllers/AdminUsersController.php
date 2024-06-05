@@ -249,8 +249,9 @@ class AdminUsersController
             }
 
             $imgName = $name . $lastName1 . $lastName2 . '_' . date('Y.m.d_His') . $imgExtension;
-            $imgName = DataCleaner::limpiarCadena($imgName);
+            $imgName = DataCleaner::cleanPhotoName($imgName);
 
+            chmod($imgDir, 0777);
             if (!move_uploaded_file($_FILES['photo']['tmp_name'], $imgDir . $imgName)) {
                 $msg = '
                     <div class="alert alert-danger fs-4 text-center mx-5 w-50">

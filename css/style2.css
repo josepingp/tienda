@@ -90,10 +90,44 @@ body {
     transform: rotate(-45deg);
 }
 
+#m-user-login-img {
+    width: 50px;
+    height: 50px;
+    border-radius: 100px;
+    object-fit: cover;
+    object-position: 0% 0%;
+    margin: 1rem auto;
+    border: 2px solid var(--primary);
+}
+
+#user-login-container {
+    display: inline-flex;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    right: .3rem;
+}
+
+/* #m-user-hi {
+    font-family: var(--theano);
+    font-size: 1.3rem;
+    text-align: center;
+    color: var(--primary);
+} */
+
+
+
+#m-admin-account-btn {
+    margin: .3rem auto;
+    padding: .5rem 1rem .4rem 1rem;
+    background-color: #ECDFD7aa;
+    border-radius: 20px;
+}
+
 #nav-m-links {
     display: flex;
     flex-direction: column;
-    width: 100svw;
+    width: 100%;
     height: auto;
     min-height: 96svh;
     background-color: var(--medium);
@@ -101,7 +135,7 @@ body {
     padding: 1.5rem;
     right: 100%;
     transition: transform .5s;
-    padding-top: 3rem;
+    padding-top: 5rem;
     z-index: 999;
 }
 
@@ -113,7 +147,7 @@ body {
 .nav-m-item-dropdown {
     list-style: none;
     border-bottom: 1px solid var(--primary);
-    margin-bottom: 10px;
+    margin-bottom: 2rem;
 }
 
 .d-dropdown-arrow-down,
@@ -346,6 +380,7 @@ body {
     margin-top: .1rem;
     color: var(--primary);
     gap: .3rem;
+    text-wrap: nowrap;
 }
 
 .login-link:hover {
@@ -355,7 +390,20 @@ body {
 
 .default-log-img {
     width: 40px;
+    height: 40px;
     border-radius: 100px;
+    object-fit: cover;
+    object-position: 0% 0%;
+}
+
+#user-login-img {
+    width: 80px;
+    height: 80px;
+    border-radius: 100px;
+    object-fit: cover;
+    object-position: 0% 0%;
+    margin: 1rem auto;
+    border: 2px solid var(--primary);
 }
 
 #login-container {
@@ -368,6 +416,29 @@ body {
     min-width: 300px;
     border-radius: 15px;
     z-index: 2;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    color: var(--contrast);
+    border: 3px solid var(--primary);
+}
+
+#user-hi {
+    font-family: var(--theano);
+    font-size: 1.3rem;
+    text-align: center;
+}
+
+#admin-account-btn {
+    margin: .3rem auto;
+    padding: .5rem 1rem .4rem 1rem;
+    background-color: #ECDFD7aa;
+    border-radius: 20px;
+}
+
+#admin-account-btn:hover {
+    background-color: var(--third);
+    color: var(--primary);
 }
 
 #login-container.hidden {
@@ -446,6 +517,11 @@ body {
     color: var(--primary);
 }
 
+header {
+    position: sticky;
+    top: 0;
+    z-index: 999;
+}
 /* HOME */
 /* BANNER */
 
@@ -511,11 +587,12 @@ body {
     background-color: var(--secondary);
     margin: 0 auto;
     margin-bottom: 1rem;
+    padding: .5rem 0;
 }
 
 .section-link {
     display: flex;
-    width: 200px;
+    width: 185px;
     background-color: var(--primary);
     text-align: center;
     font-family: var(--theano);
@@ -525,6 +602,8 @@ body {
 }
 
 .section-link:hover {
+    position: relative;
+    z-index: 3;
     transform: scale(1.1);
 }
 
@@ -564,7 +643,7 @@ a {
     font-size: 1.5rem;
 
     padding: .5rem 0;
-    margin: 0rem 0; 
+    margin: 0rem 0;
     text-align: center;
     font-family: var(--theano);
     color: var(--contrast);
@@ -580,7 +659,7 @@ a {
 }
 
 .sliders-container {
-max-width: 500px;
+    max-width: 500px;
 
 }
 
@@ -660,10 +739,6 @@ max-width: 500px;
     opacity: 1;
 }
 
-
-
-
-
 @media (min-width: 500px) {
     .banner-link {
         display: flex;
@@ -672,7 +747,7 @@ max-width: 500px;
     .banner-phrase {
         font-size: 1.1rem;
     }
-    
+
     .banner {
         margin: .5rem 0;
     }
@@ -706,6 +781,7 @@ max-width: 500px;
     .card {
         margin-top: 1rem;
     }
+
     #sections-container {
         margin-bottom: 1.5rem;
     }
@@ -737,8 +813,9 @@ max-width: 500px;
         font-size: 1.5rem;
         padding: .5rem;
         color: var(--contrast);
-        
+
     }
+
     .banner {
         width: 100%;
         margin: 1.5rem 0;

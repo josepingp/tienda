@@ -54,7 +54,7 @@ class DataCleaner
     }
 
 
-    public static function limpiarCadena($cadena)
+    public static function cleanPhotoName($string)
     {
         // Reemplazar letras con tildes por letras sin tildes
         $acentos = array(
@@ -71,12 +71,12 @@ class DataCleaner
             'ñ' => 'n',
             'Ñ' => 'N'
         );
-        $cadena = strtr($cadena, $acentos);
+        $string = strtr($string, $acentos);
 
         // Eliminar espacios y caracteres extraños que no sean letras del alfabeto latino básico o números
-        $cadena = preg_replace('/[^a-zA-Z0-9.]/', '', $cadena);
+        $string = preg_replace('/[^a-zA-Z0-9.]/', '', $string);
 
-        return $cadena;
+        return $string;
     }
 
 

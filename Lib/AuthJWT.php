@@ -4,14 +4,21 @@ namespace Lib;
 use Models\User;
 use Services\UsersService;
 use Lib\Pages;
+use Utils\DataCleaner;
 use Firebase\JWT\Key;
 use Firebase\JWT\JWT;
 use Dotenv\Dotenv;
-use Utils\DataCleaner;
 
 class AuthJWT
 {
-    public function createSessionToken(User $user, string $path)
+    private Dotenv $dotenv;
+
+    public function __construct()
+    {
+        $this->dotenv = Dotenv::createImmutable('./');
+    }
+
+    public function createSessionToken(User $user, string $path): array
     {
         $dotenv = Dotenv::createImmutable($path);
         $dotenv->load();
@@ -57,10 +64,50 @@ class AuthJWT
         return $jwtArray;
     }
 
-    public function setCoki()
+    public function JWTdecodeUser($jwt, $secretKey, $cipherKey)
     {
-        setcookie('cokie', 'hola, time()+3600');
+        $this->dotenv->load();
+
+        $cipherMethod = "AES-128-CBC";
+        //decodifico el jwt
+        $jwtDecode = JWT::decode($jwt, new Key($secretKey, "HS256"));
+        //desencripto el payload del jwt
+        $payloadDecrypted = openssl_decrypt($jwtDecode->data, $cipherMethod, $cipherKey, 0, base64_decode($jwtDecode->iv));
+
+        //obtengo el valor del usuario que hay en el token
+        $pay = json_decode($payloadDecrypted);
+        $userJWT = $pay->{'sub'};
+        $userRol = $pay->{'rol'};
+
+
+        return ['user' => $userJWT, 'rol' => $userRol];
     }
 
+    public function accessState()
+    {
+        ob_start();
+
+        if (
+            isset($_COOKIE['JWT']) && 
+            isset($_SESSION['email']) &&
+            isset($_SESSION['rol'])
+            ) {
+
+            $this->dotenv->load();
+            
+            $userJWT = $this->JWTdecodeUser($_COOKIE['JWT'], $_ENV['SIGNATURE_KEY'], $_ENV['CIPHER_KEY']);
+            //compruebo que el mail que tengo en la session es igual que el mail que tengo en el token
+            
+            if ($_SESSION['email'] == $userJWT['user'] && $_SESSION['rol'] == $userJWT['rol']) {
+                http_response_code(200);//OK
+                return true;
+            }
+        } else {
+                unset($_SESSION);
+                setcookie("jwt", "", time() - 3600, "/");
+                http_response_code(401);//No autorizado.
+                return false;
+        }
+    }
 
 }

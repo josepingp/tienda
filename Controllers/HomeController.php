@@ -6,6 +6,7 @@ use Services\UsersService;
 use Lib\Pages;
 use Utils\DataCleaner;
 
+
 class HomeController
 {
     private UsersService $service;
@@ -22,8 +23,15 @@ class HomeController
 
     public function load()
     {
-        // $this->authJWT->setCoki();
-        $this->pages->render('home');
+        if ( $this->authJWT->accessState()) {
+            
+            $user = $this->service->findUserByEmail($_SESSION['email']);
+            $this->pages->render('home',['user' => $user]);
+        
+        } else {
+            $this->pages->render('home');
+            
+        }
     }
 
     public function log()
@@ -32,11 +40,13 @@ class HomeController
         $email = DataCleaner::cleanString($_POST['email']);
 
         if ($this->service->userVerify($email, $pass)) {
+            ob_start();
 
             $user = $this->service->findUserByEmail($email);
 
-            session_start();
             $_SESSION['name'] = $user->getName();
+            $_SESSION['email'] = $user->getEmail();
+            $_SESSION['rol'] = $user->getRol();
 
             //creo el JWT token
             $jwt = $this->authJWT->createSessionToken($user, './');
@@ -45,7 +55,7 @@ class HomeController
             //El rol del usuario esta en el payload['rol']
             setcookie('JWT', $jwt['jwt'], $jwt['exp'], '/', '', true );
 
-            $this->pages->render('home');
+            $this->pages->render('home',['user' => $user]);
         } else {
             $msg = '
             <div>

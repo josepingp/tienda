@@ -8,7 +8,7 @@
 
 //HEADER
     let iconMenu = document.querySelector('.menu-icon');
-    let dropdowns = document.querySelectorAll('.nav-m-link');
+    let dropdowns = document.querySelectorAll('.dropdown-toggle');
     const loginContainer = document.querySelector('#login-container');
     const closeModal = document.querySelector('.close-modal');
     const headerLogin = document.querySelector('.icon-login-container');

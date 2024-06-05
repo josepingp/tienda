@@ -7,6 +7,7 @@ use Controllers\HomeController;
 use Lib\Router;
 use Controllers\AdminUsersController;
 
+session_start();
 
 
 

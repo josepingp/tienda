@@ -145,6 +145,20 @@ class User
         return $this->getName(). ' ' .$this->getLastName1(). ' ' .$this->getLastName2();
     }
 
+    public function takeInitials(): string
+    {
+        $string = explode(' ', $this->getName());
+        
+        $initials = '';
+        
+        foreach ($string as $word) {
+            $initials .= strtoupper(substr($word, 0, 1));
+            $initials .= '. ';
+        }
+        
+        return $initials;
+    }
+
     public static function fromArray(array $data) :User
     {
         return new User(
