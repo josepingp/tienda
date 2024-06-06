@@ -436,6 +436,21 @@ body {
     border-radius: 20px;
 }
 
+#close-session-btn {
+    margin: .3rem auto;
+    padding: .5rem 1rem .4rem 1rem;
+    background-color: var(--third);
+    border-radius: 20px;
+    border: none;
+    color: var(--secondary);
+    font-family: var(--theano);
+}
+
+#close-session-btn:hover {
+    background-color: var(--primary);
+    color: var(--contrast);
+}
+
 #admin-account-btn:hover {
     background-color: var(--third);
     color: var(--primary);
@@ -581,13 +596,14 @@ header {
     width: 100%;
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
+    justify-content: space-around;
+
     gap: 1%;
-    max-width: 1500px;
+    max-width: 1073px;
     background-color: var(--secondary);
     margin: 0 auto;
     margin-bottom: 1rem;
-    padding: .5rem 0;
+    padding: .5rem 1rem;
 }
 
 .section-link {
@@ -641,7 +657,6 @@ a {
 
 #home-slider #slider-title {
     font-size: 1.5rem;
-
     padding: .5rem 0;
     margin: 0rem 0;
     text-align: center;
@@ -692,7 +707,6 @@ a {
     border-radius: 15px 15px 0 0;
 }
 
-
 .data-prd {
     display: flex;
     flex-direction: column;
@@ -714,7 +728,6 @@ a {
 .stars-prd svg {
     width: 8%;
     filter: drop-shadow(1px 1px 1px rgba(0, 0, 0, 0.75));
-
 }
 
 .swiper-button-prev::after,
@@ -752,6 +765,10 @@ a {
         margin: .5rem 0;
     }
 
+    .section-link {
+        width: 240px;
+    }
+
     .card {
         margin-top: .5rem;
     }
@@ -776,6 +793,10 @@ a {
 
     .banner {
         margin: 1rem 0;
+    }
+    
+    .section-link {
+        width: 250px;
     }
 
     .card {
@@ -828,6 +849,10 @@ a {
         margin-bottom: 1.5rem;
     }
 
+    .section-link {
+        width: 300px;
+    }
+
     .card {
         margin-top: 1rem;
     }
@@ -849,6 +874,14 @@ a {
 
     .banner {
         margin: 2.5rem 0;
+    }
+
+    .section-link {
+        width: 228px;
+    }
+
+    #sections-container {
+        max-width: 1500px;
     }
 }
 

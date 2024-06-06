@@ -310,6 +310,9 @@
                     <img id="user-login-img" src="<?= './repo/user/' . $user->getPhoto(); ?>" alt="">
                     <p id="user-hi">Bienvenido <?= $_SESSION['name']; ?></p>
                     <a href="" id="admin-account-btn">Administrar mi cuenta</a>
+                    <form action="/proyecto/" class="login-form" method="POST">
+                        <input id="close-session-btn" type="submit" value="Cerrar sesion" name="session_close">
+                    </form>
                 <?php } else { ?>
                     <form action="/proyecto/" class="login-form" method="POST">
                         <label for="email" class="login-label">Email</label>

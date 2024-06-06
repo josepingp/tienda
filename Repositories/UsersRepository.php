@@ -24,7 +24,6 @@ class UsersRepository
     public function findUserByEmail(string $email): ?User
     {
         $this->conexion->query("SELECT * FROM users WHERE email = '$email'");
-        // $user = $this->conexion->get();
         return $this->get();
     }
 

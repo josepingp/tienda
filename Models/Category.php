@@ -8,7 +8,8 @@ class Category
         public string $id,
         public string $categoryName,
         public string $categoryDescription,
-    ){}
+    ) {
+    }
 
     public function getId(): int
     {
@@ -24,4 +25,29 @@ class Category
     {
         return (string) $this->categoryName;
     }
+
+    public function setCategoryName(string $categoryName): void
+    {
+        $this->categoryName = $categoryName;
+    }
+
+    public function getCategoryDescription(): string
+    {
+        return $this->categoryDescription;
+    }
+
+    public function setCategoryDescription(string $categoryDescription): void
+    {
+        $this->categoryDescription = $categoryDescription;
+    }
+
+    public function fromArray(array $data): Category
+    {
+        return new Category(
+            $data['id'],
+            $data['category_name'],
+            $data['category_description']
+        );
+    }
 }
+

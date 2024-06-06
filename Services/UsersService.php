@@ -31,6 +31,10 @@ class UsersService {
     public function userVerify(string $mail, string $pass): bool
     {
         $user = $this->repositories->findUserByEmail($mail);
-        return password_verify($pass, $user->getPass());
+        if (!is_null($user)){
+            return password_verify($pass, $user->getPass());
+        } else {
+            return false;
+        }
     }
 }
