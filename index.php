@@ -21,6 +21,10 @@ Router::add('POST', "/", function () {
     // return 'el enrutador funciona';
 });
 
+Router::add('GET', '/admin_products', function() {
+    return (new AdminProductsController())->list();
+});
+
 Router::add('GET', '/admin_users', function () {
     return (new AdminUsersController())->list();
     // return 'el enrutador funciona';

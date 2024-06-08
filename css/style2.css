@@ -599,7 +599,11 @@ header {
     justify-content: space-around;
 
     gap: 1%;
+<<<<<<< HEAD
     max-width: 1073px;
+=======
+    max-width: 400px;
+>>>>>>> 4c9e088 (htmls de productos acabados)
     background-color: var(--secondary);
     margin: 0 auto;
     margin-bottom: 1rem;
@@ -608,7 +612,7 @@ header {
 
 .section-link {
     display: flex;
-    width: 185px;
+    width: 175px;
     background-color: var(--primary);
     text-align: center;
     font-family: var(--theano);
@@ -804,11 +808,12 @@ a {
     }
 
     #sections-container {
-        margin-bottom: 1.5rem;
+        margin-bottom: .5rem;
+        max-width: 700px;
     }
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 1150px) {
     #d-header {
         display: flex;
         background-color: var(--secondary);
@@ -847,6 +852,7 @@ a {
 
     #sections-container {
         margin-bottom: 1.5rem;
+        max-width: 1150px;
     }
 
     .section-link {
@@ -870,6 +876,10 @@ a {
     .sliders-container {
         max-width: 1400px;
         min-width: 140px;
+    }
+
+    #sections-container {
+        max-width: 1400px;
     }
 
     .banner {

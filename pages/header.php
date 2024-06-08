@@ -277,7 +277,7 @@
                                 </a>
                                 <ul class="d dropdown-menu">
                                     <li><a href="/proyecto/admin_users" class="dropdown-d-item">Usuarios</a></li>
-                                    <li><a href="" class="dropdown-d-item">Productos</a></li>
+                                    <li><a href="/proyecto/admin_products" class="dropdown-d-item">Productos</a></li>
                                 </ul>
                             </li>
                         <?php } ?>
