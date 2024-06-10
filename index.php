@@ -6,6 +6,7 @@ require_once "config.php";
 use Controllers\HomeController;
 use Lib\Router;
 use Controllers\AdminUsersController;
+use Controllers\AdminProductsController;
 
 session_start();
 
@@ -23,6 +24,14 @@ Router::add('POST', "/", function () {
 
 Router::add('GET', '/admin_products', function() {
     return (new AdminProductsController())->list();
+});
+
+Router::add('GET', '/admin_products/product', function() {
+    return (new AdminProductsController())->addProduct();
+});
+
+Router::add('POST', '/admin_products/product', function() {
+    return (new AdminProductsController())->saveProduct();
 });
 
 Router::add('GET', '/admin_users', function () {

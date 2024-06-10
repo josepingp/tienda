@@ -13,7 +13,7 @@
             <div  class="section-link">
                 <a href="">
                     <div class="img-sections-container">
-                        <img class="section-link-img" src="./assets/img/ropa.jpg" alt="">
+                        <img class="section-link-img" src="./assets/img/ropa.jpeg" alt="">
                     </div>
                     <div class="section-tittle-container">
                         <h3 class="section-tittle">Ropa</h3>

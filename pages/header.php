@@ -11,6 +11,7 @@
     <meta name="author" content="Jose Luis García Pelayo">
     <title>Yogini Nana</title>
     <link rel="shortcut icon" href="./assets/img/favicon.ico" type="image/x-icon">
+    <base href="/proyecto/">
     <link rel="stylesheet" href="./css/swiper-bundle.min.css">
     <link rel="stylesheet" href="./css/style2.css">
 </head>
@@ -277,7 +278,7 @@
                                 </a>
                                 <ul class="d dropdown-menu">
                                     <li><a href="/proyecto/admin_users" class="dropdown-d-item">Usuarios</a></li>
-                                    <li><a href="" class="dropdown-d-item">Productos</a></li>
+                                    <li><a href="/proyecto/admin_products" class="dropdown-d-item">Productos</a></li>
                                 </ul>
                             </li>
                         <?php } ?>
@@ -310,6 +311,9 @@
                     <img id="user-login-img" src="<?= './repo/user/' . $user->getPhoto(); ?>" alt="">
                     <p id="user-hi">Bienvenido <?= $_SESSION['name']; ?></p>
                     <a href="" id="admin-account-btn">Administrar mi cuenta</a>
+                    <form action="/proyecto/" class="login-form" method="POST">
+                        <input id="close-session-btn" type="submit" value="Cerrar sesion" name="session_close">
+                    </form>
                 <?php } else { ?>
                     <form action="/proyecto/" class="login-form" method="POST">
                         <label for="email" class="login-label">Email</label>
