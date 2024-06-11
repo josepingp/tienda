@@ -30,9 +30,28 @@ class ProductsService
         return $this->repo->findAllSuppliers();
     }
 
-
     public function findAllCategories(): array
     {
         return $this->repo->findAllCategories();
+    }
+
+    public function findProductByName(string $name): ?array
+    {
+        return $this->repo->findProductByName($name);
+    }
+    
+    public function findProductByCode(string $code): ?array
+    {
+        return $this->repo->findProductByCode($code);
+    }
+
+    public function save(array $product) :void
+    {
+        $this->repo->saveProduct($product);
+    }
+
+    public function savePhotos(array $photos) :void
+    {
+        $this->repo->savePhotos($photos);
     }
 }

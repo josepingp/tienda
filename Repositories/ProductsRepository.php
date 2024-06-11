@@ -27,12 +27,12 @@ class ProductsRepository
     public function findAllFeaturedProducts()
     {
         $this->conexion->query(
-                            "SELECT products.id, products.name, products.price, photos.url 
+            "SELECT products.id, products.name, products.price, photos.url 
                             FROM products LEFT JOIN photos
                             ON products.id = photos.product_id 
                             WHERE photos.is_main = true
                             AND products.is_outstanding = true"
-                            );
+        );
         return $this->conexion->getAll();
     }
 
@@ -97,4 +97,46 @@ class ProductsRepository
 
         return $this->conexion->getAll();
     }
+
+    public function findProductByName(string $name): ?array
+    {
+        $this->conexion->query("SELECT * FROM products WHERE products.name = '" . $name . "'");
+        return $this->conexion->get();
+    }
+
+    public function findProductByCode(string $code): ?array
+    {
+        $this->conexion->query("SELECT * FROM products WHERE product_code = '" . $code . "'");
+        return $this->conexion->get();
+    }
+
+    public function saveProduct(array $product): void
+    {
+        $this->create($product);
+    }
+
+    private function create(array $product): void
+    {
+        $fields = implode(",", array_keys($product));
+        $values = implode("', '", array_values($product));
+
+        $this->conexion->query("INSERT INTO products ($fields) VALUES ('$values')");
+    }
+
+    public function savePhotos(array $photos): void
+    {
+        
+        foreach ($photos as $value) {
+            $fields = implode(",", array_keys($value));
+            $values = implode("', '", array_values($value));
+
+            $this->conexion->query("INSERT INTO photos ($fields) VALUES ('$values')");
+
+
+        }
+    }
 }
+
+
+
+

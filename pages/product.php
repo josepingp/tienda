@@ -103,4 +103,17 @@
 
         </form>
     </section>
-    <?php var_dump($_POST) ?>
+    <?php var_dump($_FILES) ;
+    echo '<br><br>';
+    var_dump($msg);
+    echo '<br><br>';
+    var_dump($_POST)?>
+
+<!-- array(4) { 
+    [0]=> array(3) { ["url"]=> string(0) "" ["is_main"]=> bool(true) ["product_id"]=> array(9) { ["id"]=> string(1) "7" ["product_code"]=> string(4) "prd6" ["name"]=> string(7) "pruebad" ["description"]=> string(11) "la rehostia" ["price"]=> string(6) "888.00" ["stock"]=> string(2) "66" ["category_id"]=> string(1) "1" ["supplier_id"]=> string(1) "1" ["is_outstanding"]=> string(1) "0" } } 
+
+[1]=> array(3) { ["url"]=> string(0) "" ["is_main"]=> bool(false) ["product_id"]=> array(9) { ["id"]=> string(1) "7" ["product_code"]=> string(4) "prd6" ["name"]=> string(7) "pruebad" ["description"]=> string(11) "la rehostia" ["price"]=> string(6) "888.00" ["stock"]=> string(2) "66" ["category_id"]=> string(1) "1" ["supplier_id"]=> string(1) "1" ["is_outstanding"]=> string(1) "0" } } 
+
+[2]=> array(3) { ["url"]=> string(0) "" ["is_main"]=> bool(false) ["product_id"]=> array(9) { ["id"]=> string(1) "7" ["product_code"]=> string(4) "prd6" ["name"]=> string(7) "pruebad" ["description"]=> string(11) "la rehostia" ["price"]=> string(6) "888.00" ["stock"]=> string(2) "66" ["category_id"]=> string(1) "1" ["supplier_id"]=> string(1) "1" ["is_outstanding"]=> string(1) "0" } } 
+
+[3]=> array(3) { ["url"]=> string(0) "" ["is_main"]=> bool(false) ["product_id"]=> array(9) { ["id"]=> string(1) "7" ["product_code"]=> string(4) "prd6" ["name"]=> string(7) "pruebad" ["description"]=> string(11) "la rehostia" ["price"]=> string(6) "888.00" ["stock"]=> string(2) "66" ["category_id"]=> string(1) "1" ["supplier_id"]=> string(1) "1" ["is_outstanding"]=> string(1) "0" } } } -->
