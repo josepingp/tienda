@@ -69,4 +69,9 @@ class HomeController
             }
         }
     }
+
+    public function reg()
+    {
+        $this->pages->render('register');
+    }
 }

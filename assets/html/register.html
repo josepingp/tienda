@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>User Register</title>
+
+    <!-- iconos -->
+    <!-- <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet"> -->
+</head>
+
+<body>
+    <main id="user-reg-f">
+
+        <div class="container">
+            <header>REGISTRO</header>
+
+            <div class="progress-bar">
+                <div class="pass">
+                    <p>Datos</p>
+                    <div class="num">
+                        <span>1</span>
+                    </div>
+                    <div class="check fas fa-check"></div>
+                </div>
+                <div class="pass">
+                    <p>Info.</p>
+                    <div class="num">
+                        <span>2</span>
+                    </div>
+                    <div class="check fas fa-check"></div>
+                </div>
+                <div class="pass">
+                    <p>Cotraseña</p>
+                    <div class="num">
+                        <span>3</span>
+                    </div>
+                    <div class="check fas fa-check"></div>
+                </div>
+                <div class="pass">
+                    <p>Foto</p>
+                    <div class="num">
+                        <span>4</span>
+                    </div>
+                    <div class="check fas fa-check"></div>
+                </div>
+            </div>
+
+            <div class="form-user-reg">
+                <form action="#" method="post">
+
+                    <!-- PAGINA 1 -->
+                    <div class="page movPag">
+
+                        <div class="form-user-reg-title">
+                            <h2>Informacion Principal</h2>
+                        </div>
+                        <div class="form-user-reg-d">
+                            <div class="label" for="nam">Nombre: <b class="error" id="names-error"></b></div>
+                            <input type="text" id="nam" name="name" placeholder="Tu nombre" required>
+                        </div>
+                        <div class="form-user-reg-d">
+                            <div class="label" for="l-name1">Primer Apellido: <b class="error" id="l-name1-error"></b>
+                            </div>
+                            <input type="text" id="l-name1" name="last_name1" placeholder="Primer apellido">
+                        </div>
+                        <div class="form-user-reg-d">
+                            <div class="label" for="l-name2">Segundo Apellido: <b class="error" id="l-name2-error"></b>
+                            </div>
+                            <input type="text" id="l-name2" name="last_name2" placeholder="Segundo apellido">
+                        </div>
+                        <div class="form-user-reg-d forw">
+                            <button>Siguiente</button>
+                        </div>
+                    </div>
+
+
+                    <!-- PAGe 2 -->
+                    <div class="page">
+
+                        <div class="form-user-reg-title">
+                            <h2>Informacion Adicional</h2>
+                        </div>
+                        <div class="form-user-reg-d">
+                            <div class="label">Correo Electronico: <b class="error" id="mail-error"></b></div>
+                            <input type="email" id="mail" name="email" placeholder="example.@gmail.com">
+                        </div>
+                        <div class="form-user-reg-d">
+                            <div class="label">Fecha Nacimiento: <b class="error" id="b-date-error"></b></div>
+                            <input type="date" id="b-date" name="birthdate" required>
+                        </div>
+                        <div class="form-user-reg-d btns">
+                            <button class="back back-pag-1">Atras</button>
+                            <button class="to-go-to-pag3 go-forw">Siguiente</button>
+                        </div>
+                    </div>
+
+
+                    <!-- PAGe 3  -->
+                    <div class="page">
+
+                        <div class="form-user-reg-title">
+                            <h2>Contraseña</h2>
+                        </div>
+                        <div class="form-user-reg-d">
+                            <div class="label">Contraseña <b class="error" id="pass-1-error"></b></div>
+                            <input type="password" id="pass-1" name="pass1" placeholder="contraseña">
+                        </div>
+                        <div class="form-user-reg-d">
+                            <div class="label">Repite la contraseña <b class="error" id="pass-2-error"></b></div>
+                            <input type="password" id="pass-2" name="pass2" placeholder="contraseña">
+                        </div>
+                        <div class="form-user-reg-d btns">
+                            <button class="back back-pag-2">Atras</button>
+                            <button class="to-go-to-pag4 go-forw" type="submit">Siguiente</button>
+                        </div>
+                    </div>
+
+
+                    <!-- PAGe 4  -->
+                    <div class="page">
+                        <div class="form-user-reg-title">
+                            <h2>Foto</h2>
+                        </div>
+                        <!-- <div class="form-user-reg-d">
+                            <div class="label">Nombre Usuario: <b class="error" id="usuario-error"></b></div>
+                            <input type="text" id="usuario" placeholder="Nombre usuario">
+                        </div>
+                        <div class="form-user-reg-d">
+                            <div class="label">Contraseña <b class="error" id="contra-error"></b></div>
+                            <input type="password" id="contra" placeholder="contraseña">
+                            <span class="ojito" onclick="mostraContra()">
+                                <i id="Mostrar" class="fa fa-eye" title="Mostrar Contraseña"></i>
+                                <i id="Ocultar" class="fa fa-eye-slash" title="Ocultar Contraseña"></i>
+                            </span>
+                        </div> -->
+                        <div class="form-user-reg-d img" id="user-img">
+                            <img src="./assets/img/logo-sin-fondo.png" alt="">
+                        </div>
+                        <div class="form-user-reg-d file">
+                            
+                                <input class="file-input" type="file" name="photo" accept=".jpg, .png, .jpeg">
+                                
+                            
+                        </div>
+                        <div class="form-user-reg-d btns">
+                            <button class="back back-pag-3">Atras</button>
+                            <button class="end">Finalizar</button>
+                        </div>
+                    </div>
+
+
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        /*MOVIMIENTO DE PAGINAS */
+
+        const movPag = document.querySelector(".movPag"); //va traer un elemento y lo almacena en la variable
+
+        /*MOVIMIENTO DE PAGE 1*/
+        const btn_adelante2 = document.querySelector(".forw");
+
+        /*MOVIMIENTO DE PAGE 2*/
+        const btn_atras1 = document.querySelector(".back-pag-1");
+        const btn_adelante3 = document.querySelector(".to-go-to-pag3");
+
+        /*MOVIMIENTO DE PAGE 3*/
+        const btn_atras2 = document.querySelector(".back-pag-2");
+        const btn_adelante4 = document.querySelector(".to-go-to-pag4");
+
+        /*MOVIMIENTO DE PAGE 4*/
+        const btn_atras3 = document.querySelector(".back-pag-3");
+        const btn_final = document.querySelector(".end");
+
+        /*progress bar */
+        const progressText = document.querySelectorAll(".pass p")
+        const progresscheck = document.querySelectorAll(".pass .check")
+        const num = document.querySelectorAll(".pass .num")
+
+        let max = 4;
+        let cont = 1;
+
+        /*PAGe 1 a page 2*/
+        btn_adelante2.addEventListener("click", function (sig) {
+            sig.preventDefault();
+
+            let nombre = document.getElementById("nam").value;
+            let apellido1 = document.getElementById("l-name1").value;
+            let apellido2 = document.getElementById("l-name2").value;
+
+            if (nombre == "") {
+                document.getElementById("names-error").innerHTML = "* Escribe tu nombre"
+                document.getElementById("nam").style.border = "2px solid #a8234a"
+            } else if (apellido1 == "") {
+                document.getElementById("l-name1-error").innerHTML = "*Tu Primer Apellido"
+                document.getElementById("l-name1").style.border = "2px solid #a8234a"
+            } else if (apellido2 == "") {
+                document.getElementById("l-name2-error").innerHTML = "*Tu segundo Apellido"
+                document.getElementById("l-name2").style.border = "2px solid #a8234a"
+            }
+
+            else {
+                movPag.style.marginLeft = "-25%"; //el 100% se divide en las 4pag dando asi 25%
+                num[cont - 1].classList.add("active"); //agrega ala lista alemento n°1 - (0) la clase (active)
+                progressText[cont - 1].classList.add("active");
+                progresscheck[cont - 1].classList.add("active");
+                cont += 1;
+
+                document.getElementById("nombre").style.border = "none"
+                document.getElementById("nombres-error").innerHTML = " "
+                document.getElementById("apellido1").style.border = "none"
+                document.getElementById("apellido1-error").innerHTML = " "
+                document.getElementById("apellido2").style.border = "none"
+                document.getElementById("apellido2-error").innerHTML = " "
+            }
+        });
+
+
+
+        /*PAGe 2 a page 3*/
+        btn_adelante3.addEventListener("click", function (sig) {
+            sig.preventDefault();
+
+            let birthdate = document.querySelector('#b-date').value;
+            let email = document.getElementById("mail").value;
+
+            if (email == "") {
+                document.getElementById("mail-error").innerHTML = "* Email invalido"
+                document.getElementById("mail").style.border = "2px solid #a8234a"
+            } else if (email.length < 6) {
+                document.getElementById("mail-error").innerHTML = "* 6 o mas caracteres"
+                document.getElementById("mail").style.border = "2px solid #a8234a"
+            } else if (!validatemail(email)) {
+                document.getElementById("mail-error").innerHTML = "* No olvidaste el @?"
+                document.getElementById("mail").style.border = "2px solid #a8234a"
+            } else {
+                if (birthdate == "") {
+                    document.getElementById("b-date-error").innerHTML = "* Seleccione una fecha"
+                    document.getElementById("b-date").style.border = "2px Solid #a8234a"
+
+                } else {
+                    document.getElementById("b-date-error").innerHTML = ""
+                    document.getElementById("b-date").style.border = "none"
+                    document.getElementById("mail-error").innerHTML = ""
+                    document.getElementById("mail").style.border = "none"
+
+                    movPag.style.marginLeft = "-50%"; // de 25% pasa a 50% para darle paso ala siguiente
+                    num[cont - 1].classList.add("active");
+                    progressText[cont - 1].classList.add("active");
+                    progresscheck[cont - 1].classList.add("active");
+                    cont += 1;
+                }
+
+            }
+            function validatemail($n) {
+                let ExpRegular_Correo = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+                return ExpRegular_Correo.test($n);
+            }
+        })
+
+        /*PAGe 2 - atras page 1*/
+        btn_atras1.addEventListener("click", function (sig) {
+            sig.preventDefault();
+            movPag.style.marginLeft = "0%"; //regresaria al 0% 
+            num[cont - 2].classList.remove("active");
+            progressText[cont - 2].classList.remove("active");
+            progresscheck[cont - 2].classList.remove("active");
+            cont -= 1;
+        })
+
+
+
+        /*PAGe 3 a page 4*/
+        btn_adelante4.addEventListener("click", function (sig) {
+            sig.preventDefault();
+
+            let pass1 = document.querySelector('#pass-1').value
+            let pass2 = document.querySelector('#pass-2').value
+
+            if (pass1 == "" || pass2 == "") {
+                document.getElementById("pass-1-error").innerHTML = "* Campo obligatorio"
+                document.getElementById("pass-1").style.border = "2px solid #a8234a"
+                document.getElementById("pass-2-error").innerHTML = "* Campo obligatorio"
+                document.getElementById("pass-2").style.border = "2px solid #a8234a"
+            } else if (pass1.length < 8 || !passVerify(pass1) || pass2.length < 8 || !passVerify(pass2)) {
+                document.getElementById("pass-1-error").innerHTML = "* 1 Mayus, 1minus y 8letras"
+                document.getElementById("pass-1").style.border = "2px solid #a8234a"
+            } else if (pass1 != pass2) {
+                document.getElementById("pass-1-error").innerHTML = "* contaseñas diferentes"
+                document.getElementById("pass-1").style.border = "2px solid #a8234a"
+            } else {
+                movPag.style.marginLeft = "-75%";
+                num[cont - 1].classList.add("active");
+                progressText[cont - 1].classList.add("active");
+                progresscheck[cont - 1].classList.add("active");
+                cont += 1;
+            }
+
+
+            function passVerify($n) {
+                let expPass = /^(?=\w*\d)(?=\w*[A-Z])(?=\w*[a-z])\S{6,16}$/;
+                return expPass.test($n);
+            }
+        })
+
+        /*PAGe 3 - atras page 2*/
+        btn_atras2.addEventListener("click", function (sig) {
+            sig.preventDefault();
+            movPag.style.marginLeft = "-25%"; //regresaria al 25%
+            num[cont - 2].classList.remove("active");
+            progressText[cont - 2].classList.remove("active");
+            progresscheck[cont - 2].classList.remove("active");
+            cont -= 1;
+        })
+
+
+
+        /*page 4 - fin*/
+        btn_final.addEventListener("click", function (sig) {
+            sig.preventDefault();
+
+            let usuario = document.getElementById("usuario").value;
+            let contra = document.getElementById("contra").value;
+
+            if (usuario == "" && contra == "") {
+                document.getElementById("usuario-error").innerHTML = "* Escribe tu nombre usuario"
+                document.getElementById("usuario").style.border = "2px solid #a8234a"
+                document.getElementById("contra-error").innerHTML = "* Escribe tu contraseña"
+                document.getElementById("contra").style.border = "2px solid #a8234a"
+
+            } else if (usuario == "" || contra == "" ||
+                usuario.length < 2 || contra.length < 5 ||
+                !verificarUsuario(usuario) || !verificarContra(contra)
+            ) {
+                if (usuario == "") {
+                    document.getElementById("usuario-error").innerHTML = "* Escribe tu nombre usuario"
+                    document.getElementById("usuario").style.border = "2px solid #a8234a"
+                } else if (usuario.length < 2 && !verificarUsuario(usuario)) {
+                    document.getElementById("usuario-error").innerHTML = "* Mayusculas, Minusculas y letras"
+                    document.getElementById("usuario").style.border = "2px solid #a8234a"
+                } else if (usuario.length < 2) {
+                    document.getElementById("usuario-error").innerHTML = "* Debe tener 3 o mas caracteres"
+                    document.getElementById("usuario").style.border = "2px solid #a8C234a"
+                } else if (!verificarUsuario(usuario)) {
+                    document.getElementById("usuario-error").innerHTML = "* Ingreso datos invalidos"
+                    document.getElementById("usuario").style.border = "2px solid #a8C234a"
+                } else {
+                    document.getElementById("usuario-error").innerHTML = ""
+                    document.getElementById("usuario").style.border = "none"
+                }
+
+                if (contra == "") {
+                    document.getElementById("contra-error").innerHTML = "* Escribe tu contraseña"
+                    document.getElementById("contra").style.border = "2px solid #a8234a"
+                } else if (contra.length < 5 && !verificarContra(contra)) {
+                    document.getElementById("contra-error").innerHTML = "* Mayuscula, minuscula y N°"
+                    document.getElementById("contra").style.border = "2px solid #a8234a"
+                } else if (contra.length < 5) {
+                    document.getElementById("contra-error").innerHTML = "* Minimo 6 caracteres"
+                    document.getElementById("contra").style.border = "2px solid #a8234a"
+                } else if (!verificarContra(contra)) {
+                    document.getElementById("contra-error").innerHTML = "* Mayuscula, minuscula y N°"
+                    document.getElementById("contra").style.border = "2px solid #a8234a"
+                } else {
+                    document.getElementById("contra-error").innerHTML = ""
+                    document.getElementById("contra").style.border = "none"
+                }
+
+            } else {
+                alert("Aqui Finaliza El Registro. GRACIASS!")
+                limpiar();
+                num[cont - 1].classList.add("active");
+                progressText[cont - 1].classList.add("active");
+                progresscheck[cont - 1].classList.add("active");
+                cont += 1;
+            }
+
+
+            // Funcion verificar usuario
+            function verificarUsuario($n) {
+                let ExpRegular_Usuario = /^[a-zA-Z][a-zA-Z0-9_]{3,9}$/;
+                return ExpRegular_Usuario.test($n);
+            }
+
+            // Funcion verificar contraseña
+            function passVerify($n) {
+                let expPass = /^(?=\w*\d)(?=\w*[A-Z])(?=\w*[a-z])\S{6,16}$/;
+                return expPass.test($n);
+            }
+
+        })
+
+        /*PAGe 4 / atras-pag3*/
+        btn_atras3.addEventListener("click", function (sig) {
+            sig.preventDefault();
+            movPag.style.marginLeft = "-50%"; //regresaria al 50%
+            num[cont - 2].classList.remove("active");
+            progressText[cont - 2].classList.remove("active");
+            progresscheck[cont - 2].classList.remove("active");
+            cont -= 1;
+        })
+
+
+
+
+
+        //funcion mostrar la contraseña
+        function mostraContra() {
+            let input = document.getElementById("contra");
+            let ocultar = document.getElementById("Ocultar");
+            let mostrar = document.getElementById("Mostrar");
+
+            if (input.type == 'password') {
+                input.type = "text";
+                ocultar.style.display = "none";
+                mostrar.style.display = "block";
+            } else {
+                input.type = "password";
+                ocultar.style.display = "block";
+                mostrar.style.display = "none";
+            }
+        }
+
+        //funcion limpiar
+        function limpiar() {
+            document.getElementById("nombre").value = "";
+            document.getElementById("apellido1").value = "";
+            document.getElementById("apellido2").value = "";
+            document.querySelector('input[type="date"]').value = "";
+            document.getElementById("sexo").value = -1;
+            document.getElementById("correo").value = "";
+            document.getElementById("numCel").value = "";
+            document.getElementById("usuario").value = "";
+            document.getElementById("contra").value = "";
+        }
+    </script>
+</body>
+
+</html>

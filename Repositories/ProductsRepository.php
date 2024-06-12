@@ -125,18 +125,19 @@ class ProductsRepository
 
     public function savePhotos(array $photos): void
     {
-        
+        $fields = implode(", ", array_keys($photos[0]));
+        $photoValues = [];
+
         foreach ($photos as $value) {
-            $fields = implode(",", array_keys($value));
-            $values = implode("', '", array_values($value));
-
-            $this->conexion->query("INSERT INTO photos ($fields) VALUES ('$values')");
-
-
+            $photoValues[] = "('" . implode("', '", array_values($value)) . "')";
         }
+
+        $values = implode(", ", $photoValues);
+
+
+        $this->conexion->query("INSERT INTO photos ($fields) VALUES $values");
     }
 }
-
 
 
 
