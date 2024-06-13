@@ -17,9 +17,9 @@
                     required placeholder="Introduzca nombre o código del producto" id="search-input">
         </article>
         <article class="admin-btns-container">
-            <a href="/proyecto/admin_products/product/">Añadir Producto</a>
-            <a href="">Añadir Categoria</a>
-            <a href="">Añadir Distribuidor</a>
+            <a href="/proyecto/admin_products/new_product/">Añadir Producto</a>
+            <a href="/proyecto/admin_products/new_category/">Añadir Categoria</a>
+            <a href="/proyecto/admin_products/new_supplier/">Añadir Distribuidor</a>
         </article>
     </section>
 

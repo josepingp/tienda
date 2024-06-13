@@ -3,10 +3,17 @@ require_once "./inc/autoloader.php";
 require_once "./vendor/autoload.php";
 require_once "config.php";
 
+use Controllers\AccountController;
+use Controllers\BlogController;
 use Controllers\HomeController;
+use Controllers\SuppliersController;
 use Lib\Router;
 use Controllers\AdminUsersController;
 use Controllers\AdminProductsController;
+use Controllers\ProductsContoller;
+use Controllers\ContactController;
+use Controllers\CartController;
+use Controllers\CategoriesController;
 
 session_start();
 
@@ -23,18 +30,54 @@ Router::add('POST', "/", function () {
 });
 
 Router::add('GET', '/register', function() {
-    return (new HomeController())->reg();
+    return (new HomeController())->loadReg();
+});
+
+Router::add('POST', '/register', function() {
+    return (new HomeController())->addReg();
+});
+
+Router::add('GET', '/products', function() {
+    return (new ProductsContoller())->load();
+});
+
+Router::add('GET', '/my_account', function() {
+    return (new AccountController())->load();
+});
+
+Router::add('GET', '/products/:id', function ($category) {
+    return (new ProductsContoller())->listCategory($category);
+});
+
+Router::add('GET', '/blog', function () {
+    return (new BlogController())->load();
+});
+
+Router::add('GET', '/contact', function () {
+    return (new ContactController())->load();
+});
+
+Router::add('GET', '/cart', function () {
+    return (new CartController())->load();
 });
 
 Router::add('GET', '/admin_products', function() {
     return (new AdminProductsController())->list();
 });
 
-Router::add('GET', '/admin_products/product', function() {
+Router::add('GET', '/admin_products/new_product', function() {
     return (new AdminProductsController())->addProduct();
 });
 
-Router::add('POST', '/admin_products/product', function() {
+Router::add('GET', '/admin_products/new_supplier', function() {
+    return (new SuppliersController())->addSupplier();
+});
+
+Router::add('GET', '/admin_products/new_category', function() {
+    return (new CategoriesController())->addCategory();
+});
+
+Router::add('POST', '/admin_products/product', function () {
     return (new AdminProductsController())->saveProduct();
 });
 

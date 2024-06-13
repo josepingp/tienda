@@ -38,11 +38,20 @@
                             </g>
                         </svg>
                         <section id="nav-m-links">
-                            <?php if (isset($user)) { ?>           
+                            <?php if (isset($user)) { ?>
                                 <div id="user-login-container">
-                                    
-                                    <a href="">
-                                        <img id="m-user-login-img" src="<?= './repo/user/' . $user->getPhoto(); ?>" alt="">
+
+                                    <a href="/proyecto/my_account">
+                                        <img id="m-user-login-img" src="<?php if (isset($user)) {
+                                            if ($user->getPhoto() != '') {
+                                                echo './repo/user/' . $user->getPhoto();
+                                            } else {
+                                                echo './assets/img/sinlog.png';
+                                            }
+                                        } else {
+                                            echo './assets/img/sinlog.png';
+
+                                        } ?>" alt="">
                                     </a>
                                 </div>
                             <?php } ?>
@@ -51,7 +60,7 @@
                                     <a href="/proyecto/" class="nav-m-link">Home</a>
                                 </li>
                                 <li class="nav-m-item-dropdown">
-                                    <a href="" class="nav-m-link dropdown-toggle">
+                                    <a href="/proyecto/products" class="nav-m-link dropdown-toggle">
                                         Productos
                                         <svg class="dropdown-arrow-down" xmlns="http://www.w3.org/2000/svg" width="20"
                                             height="20" viewBox="0 0 24 24">
@@ -65,19 +74,19 @@
                                         </svg>
                                     </a>
                                     <ul class="dropdown-menu">
-                                        <li><a href="" class="dropdown-m-item">Moda</a></li>
-                                        <li><a href="" class="dropdown-m-item">Accesorios</a></li>
-                                        <li><a href="" class="dropdown-m-item">Esterillas</a></li>
-                                        <li><a href="" class="dropdown-m-item">Mantas</a></li>
-                                        <li><a href="" class="dropdown-m-item">Zafus</a></li>
-                                        <li><a href="" class="dropdown-m-item">Meditación</a></li>
+                                        <li><a href="/proyecto/products/1" class="dropdown-m-item">Moda</a></li>
+                                        <li><a href="/proyecto/products/5" class="dropdown-m-item">Accesorios</a></li>
+                                        <li><a href="/proyecto/products/3" class="dropdown-m-item">Esterillas</a></li>
+                                        <li><a href="/proyecto/products/4" class="dropdown-m-item">Mantas</a></li>
+                                        <li><a href="/proyecto/products/2" class="dropdown-m-item">Zafus</a></li>
+                                        <li><a href="/proyecto/products/6" class="dropdown-m-item">Meditación</a></li>
                                     </ul>
                                 </li>
                                 <li class="nav-m-item">
-                                    <a href="" class="nav-m-link">Blog</a>
+                                    <a href="/proyecto/blog" class="nav-m-link">Blog</a>
                                 </li>
                                 <li class="nav-m-item">
-                                    <a href="" class="nav-m-link">Contacto</a>
+                                    <a href="/proyecto/contact" class="nav-m-link">Contacto</a>
                                 </li>
                                 <?php if (!isset($user)) { ?>
                                     <li class="nav-m-item-dropdown">
@@ -105,7 +114,7 @@
                                                         pattern="[a-zA-Z0-9$@.-]{7,100}" required>
                                                     <div id="login-btns">
                                                         <input type="submit" class="login-button" value="Inicia sesion">
-                                                        <a class="create-account" href="">Registrarse</a>
+                                                        <a class="create-account" href="/proyecto/register/">Registrarse</a>
                                                     </div>
                                                 </form>
                                             </li>
@@ -113,7 +122,7 @@
                                     </li>
                                 <?php } ?>
                                 <li class="nav-m-item">
-                                    <a href="" class="nav-m-link">Carrito</a>
+                                    <a href="/proyecto/cart" class="nav-m-link">Carrito</a>
                                 </li>
                                 <?php
                                 if ((isset($user) && $_SESSION['rol'] == 1) or (isset($user) && $_SESSION['rol'] == 4)) {
@@ -235,7 +244,7 @@
                     <ul class="d-navbar-links">
                         <li class="d-navbar-link"><a href="/proyecto/">Home</a></li>
                         <li class="d-navbar-link drop">
-                            <a class="nav-d-link dropdown-toggle">
+                            <a class="nav-d-link dropdown-toggle" href="/proyecto/products">
                                 Productos
                                 <svg class="d-dropdown-arrow-down" xmlns="http://www.w3.org/2000/svg" width="20"
                                     height="20" viewBox="0 0 24 24">
@@ -249,16 +258,16 @@
                                 </svg>
                             </a>
                             <ul class="d dropdown-menu">
-                                <li><a href="" class="dropdown-d-item">Moda</a></li>
-                                <li><a href="" class="dropdown-d-item">Accesorios</a></li>
-                                <li><a href="" class="dropdown-d-item">Esterillas</a></li>
-                                <li><a href="" class="dropdown-d-item">Mantas</a></li>
-                                <li><a href="" class="dropdown-d-item">Zafus</a></li>
-                                <li><a href="" class="dropdown-d-item">Meditación</a></li>
+                                <li><a href="/proyecto/products/1" class="dropdown-d-item">Moda</a></li>
+                                <li><a href="/proyecto/products/5" class="dropdown-d-item">Accesorios</a></li>
+                                <li><a href="/proyecto/products/3" class="dropdown-d-item">Esterillas</a></li>
+                                <li><a href="/proyecto/products/4" class="dropdown-d-item">Mantas</a></li>
+                                <li><a href="/proyecto/products/2" class="dropdown-d-item">Zafus</a></li>
+                                <li><a href="/proyecto/products/6" class="dropdown-d-item">Meditación</a></li>
                             </ul>
                         </li>
-                        <li class="d-navbar-link"><a href="">Blog</a></li>
-                        <li class="d-navbar-link"><a href="">Contacto</a></li>
+                        <li class="d-navbar-link"><a href="/proyecto/blog">Blog</a></li>
+                        <li class="d-navbar-link"><a href="/proyecto/contact">Contacto</a></li>
                         <?php
                         if ((isset($user) && $_SESSION['rol'] == 1) or (isset($user) && $_SESSION['rol'] == 4)) {
                             ?>
@@ -288,7 +297,7 @@
             <nav class="d-navbar2">
                 <section class="d-navbar2-container">
                     <article>
-                        <a href="" class="cart-link"><svg xmlns="http://www.w3.org/2000/svg" width="40" height="40"
+                        <a href="/proyecto/cart" class="cart-link"><svg xmlns="http://www.w3.org/2000/svg" width="40" height="40"
                                 viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                 stroke-linejoin="round" class="icon-shopping-cart">
                                 <path stroke="none" d="M0 0h24v24H0z" fill="none" />
@@ -299,18 +308,34 @@
                             </svg></a>
                     </article>
                     <article class="icon-login-container">
-                        <a class="login-link"><?php echo (isset($user)) ? $user->takeInitials() : 'login'; ?> <img
-                                src="<?= (isset($user)) ? './repo/user/' . $user->getPhoto() : './assets/img/sinlog.png'; ?>"
-                                alt="" class="default-log-img"></a>
+                        <a class="login-link"><?php echo (isset($user)) ? $user->takeInitials() : 'login'; ?> <img src="<?php if (isset($user)) {
+                                    if ($user->getPhoto() != '') {
+                                        echo './repo/user/' . $user->getPhoto();
+                                    } else {
+                                        echo './assets/img/sinlog.png';
+                                    }
+                                } else {
+                                    echo './assets/img/sinlog.png';
+
+                                } ?>" alt="" class=" default-log-img"></a>
                     </article>
                 </section>
             </nav>
             <section id="login-container" class="hidden">
                 <button class="close-modal">X</button>
                 <?php if (isset($user)) { ?>
-                    <img id="user-login-img" src="<?= './repo/user/' . $user->getPhoto(); ?>" alt="">
+                    <img id="user-login-img" src="<?php if (isset($user)) {
+                        if ($user->getPhoto() != '') {
+                            echo './repo/user/' . $user->getPhoto();
+                        } else {
+                            echo './assets/img/sinlog.png';
+                        }
+                    } else {
+                        echo './assets/img/sinlog.png';
+
+                    } ?>" alt="">
                     <p id="user-hi">Bienvenido <?= $_SESSION['name']; ?></p>
-                    <a href="" id="admin-account-btn">Administrar mi cuenta</a>
+                    <a href="/proyecto/my_account" id="admin-account-btn">Administrar mi cuenta</a>
                     <form action="/proyecto/" class="login-form" method="POST">
                         <input id="close-session-btn" type="submit" value="Cerrar sesion" name="session_close">
                     </form>
@@ -323,12 +348,11 @@
                             name="pass" required>
                         <div id="login-btns">
                             <input type="submit" class="login-button" value="Inicia sesion">
-                            <a class="create-account" href="">Registrarse</a>
+                            <a class="create-account" href="/proyecto/register/">Registrarse</a>
                         </div>
                     </form>
                 <?php } ?>
             </section>
         </section>
     </header>
-    <?php if (isset($msg))
-        echo $msg; ?>
+    <?php ?>

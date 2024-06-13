@@ -20,12 +20,17 @@
 
 body {
     background-color: var(--primary);
+    background-image: url(../assets/img/bannermeditacion.png);
+    object-fit: cover;
+    object-position: 100% 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: 90svh;
 }
 
 /* MOBILE HEADER */
 #m-nav {
-    background-color: var(--secondary);
-    padding: .3rem;
+    background: radial-gradient(circle, rgba(200,173,157,1) 0%, rgba(189,139,122,1) 100%);
     width: 100%;
     display: flex;
     justify-content: space-between;
@@ -252,7 +257,7 @@ body {
 .d-navbar {
     display: flex;
     align-items: flex-end;
-    /* background-color: var(--secondary); */
+    background: radial-gradient(circle, rgba(200,173,157,1) 0%, rgba(189,139,122,1) 100%);
     width: 100%;
 }
 
@@ -312,7 +317,7 @@ body {
 
 .d-navbar-link.drop:hover .d.dropdown-menu {
     display: block;
-    background-color: var(--secondary);
+    background: radial-gradient(circle, rgba(200,173,157,1) 0%, rgba(189,139,122,1) 100%);
 }
 
 .d-dropdown-arrow-up,
@@ -600,7 +605,7 @@ header {
     justify-content: space-around;
     gap: 1%;
     max-width: 400px;
-    background-color: var(--secondary);
+    background: radial-gradient(circle, rgba(189,139,122,1) 0%, rgba(189,139,122,1) 100%);
     margin: 0 auto;
     margin-bottom: 1rem;
     padding: .5rem 1rem;
@@ -714,7 +719,7 @@ a {
     font-family: var(--theano);
     font-size: 1rem;
     gap: .5rem;
-    background-color: var(--secondary);
+    background: radial-gradient(circle, rgba(200,173,157,1) 0%, rgba(189,139,122,1) 100%);
     border-radius: 0 0 15px 15px;
     width: 300px;
 }
@@ -980,6 +985,273 @@ a {
 
 .admin-table-tb tr:nth-child(odd) {
     background-color: #444;
+}
+
+
+/* REGISTRO */
+#user-reg-f {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 90vh;
+    background-image: url(../assets/img/como_hacer_meditacion_zen_45688_orig.jpg);
+    object-fit: cover;
+    object-position: 100% 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    font-family: var(--theano);
+}
+
+.container {
+    min-width: 300px;
+    max-width: 400px;
+    backdrop-filter: blur(20px);
+    box-shadow: 2px 2px 20px #0004;
+    border-radius: 7px;
+    text-align: center;
+    padding: 30px 35px 0 35px;
+}
+
+.container header {
+    font-size: 28px;
+    font-weight: 800;
+    margin: 0 0 30px 0;
+}
+
+.container .form-user-reg {
+    width: 100%;
+    overflow: hidden;
+}
+
+.form-user-reg form {
+    display: flex;
+    width: 400%;
+}
+
+.form-user-reg form .page {
+    width: 25%;
+    transition: margin-left 0.3s ease-in-out;
+
+}
+
+.form-user-reg .titulo h2 {
+    text-align: left;
+    font-size: 1.6rem;
+    font-weight: 600;
+}
+
+.form-user-reg .page .form-user-reg-d {
+    height: 35px;
+    min-width: 260px;
+    max-width: 330px;
+    margin: 40px 0;
+    display: flex;
+    position: relative;
+}
+
+.form-user-reg .page .label {
+    position: absolute;
+    top: -25px;
+    font-weight: 500;
+    font-size: 16px;
+    float: left;
+    text-align: left;
+    width: 100%;
+    font-family: var(--theano);
+}
+
+.form-user-reg .page input {
+    width: 330px;
+    height: 100%;
+    border: 1px solid var(--secondary);
+    border-radius: 5px;
+    font-size: 16px;
+    padding-left: 15px;
+    font-family: var(--theano);
+}
+
+.form-user-reg .page button {
+    width: 330px;
+    height: calc(100% + 5px);
+    margin-top: -20px;
+    border: none;
+    background-color: var(--primary);
+    color: var(--contrast);
+    border-radius: 7px;
+    font-size: 1rem;
+    font-weight: 500;
+    font-family: var(--theano);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: 0.3s ease;
+    border: 1px solid var(--third);
+}
+
+.form-user-reg .page button:hover {
+    background-color: var(--primary);
+    color: var(--contrast);
+}
+
+#user-img {
+    position: relative;
+}
+
+.form-user-reg img {
+    width: 100px;
+    position: absolute;
+    bottom: -30px;
+    right: 114px;
+    border-radius: 50%;
+}
+
+.form-user-reg .file {
+    display: none;
+    background-color: var(--secondary);
+}
+
+.form-user-reg .page .btns button {
+    margin-top: -20px;
+}
+
+.form-user-reg .page .btns button.volver {
+    margin-right: 3px;
+    font-size: 17px;
+}
+
+.form-user-reg .page .btns button.adelante {
+    margin-left: 3px;
+}
+
+
+/*---BARRA PROGRESS---*/
+
+.container .progress-bar {
+    display: flex;
+    margin: 30px 0;
+}
+
+.container .progress-bar .pass {
+    text-align: center;
+    width: 100%;
+    position: relative;
+    cursor: default;
+}
+
+.progress-bar .pass p {
+    font-size: 1rem;
+    font-weight: 400;
+    color: #000;
+    margin-bottom: 8px;
+    transition: 0.3s;
+}
+
+.progress-bar p.active {
+    color: #a8234a;
+}
+
+.progress-bar .pass .num {
+    position: relative;
+    width: 25px;
+    height: 25px;
+    border: 2px solid #000;
+    border-radius: 50%;
+    display: inline-block;
+    font-weight: 500;
+    font-size: 17px;
+    line-height: 25px;
+    transition: 0.3s;
+}
+
+.progress-bar .pass .num.active {
+    border-color: #a8234a;
+    background-color: #a8234a88;
+}
+
+.progress-bar .pass .num span {
+    font-weight: 500px;
+    font-size: 17px;
+    line-height: 25px;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.progress-bar .pass .num.active span {
+    display: none;
+}
+
+.progress-bar .pass .check {
+    display: none;
+    position: absolute;
+    left: 50%;
+    top: 70%;
+    font-size: 15px;
+    transform: translate(-50%, -50%);
+}
+
+.progress-bar .pass .check.active {
+    display: block;
+    color: #fff;
+}
+
+.progress-bar .pass .num:before,
+.progress-bar .pass .num:after {
+    position: absolute;
+    content: '';
+    width: 44px;
+    height: 3px;
+    bottom: 11px;
+    right: -53px;
+    background: #000;
+
+}
+
+.progress-bar .pass:last-child .num:before,
+.progress-bar .pass:last-child .num:after {
+    display: none;
+}
+
+.progress-bar .pass .num.active::after {
+    background-color: #a8234a;
+    animation: mov_Linea 0.3s linear forwards;
+    transform: scalex(0);
+    transform-origin: left;
+}
+
+@keyframes mov_Linea {
+    100% {
+        transform: scalex(1);
+    }
+}
+
+
+
+/*estilos para mostrar mensaje de error*/
+
+.error {
+    color: var(--contrast);
+    float: right;
+    text-align: right;
+    font-weight: 500;
+    font-size: .9rem;
+}
+
+@media (max-width: 350px) {
+
+    .progress-bar .pass .num:before,
+    .progress-bar .pass .num:after {
+        width: 34px;
+        right: -35px;
+    }
+
+    #user-reg-f>div>div.progress-bar>div:nth-child(3)>div.num {
+        margin-left: -25px;
+    }
+
+    #user-reg-f>div>div.progress-bar>div:nth-child(4)>.num {
+        margin-left: -40px;
+    }
 }
 
 

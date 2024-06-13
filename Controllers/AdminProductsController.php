@@ -45,7 +45,7 @@ class AdminProductsController
             $suppliers = $this->productService->findAllSuppliers();
             $categories = $this->productService->findAllCategories();
 
-            $this->pages->render('product', [
+            $this->pages->render('new_product', [
                 'suppliers' => $suppliers,
                 'categories' => $categories,
                 'user' => $user
@@ -416,7 +416,7 @@ class AdminProductsController
             $suppliers = $this->productService->findAllSuppliers();
             $categories = $this->productService->findAllCategories();
 
-            $this->pages->render('product', [
+            $this->pages->render('new_product', [
                 'suppliers' => $suppliers,
                 'categories' => $categories,
                 'user' => $user,

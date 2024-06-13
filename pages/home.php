@@ -2,7 +2,7 @@
 <main>
         <section class="banner">
             <div class="banner-container">
-                <a href="" class="banner-link">Ver productos</a>
+                <a href="/proyecto/products" class="banner-link">Ver productos</a>
                 <div class="banner-phrase">
                     <p>Siente el viento</p><p>fluir en ti</p>
                 </div>
@@ -11,7 +11,7 @@
         </section>
         <section id="sections-container">
             <div  class="section-link">
-                <a href="">
+                <a href="/proyecto/products/1">
                     <div class="img-sections-container">
                         <img class="section-link-img" src="./assets/img/ropa.jpeg" alt="">
                     </div>
@@ -21,7 +21,7 @@
                 </a>
             </div>
             <div class="section-link">
-                <a href="">
+                <a href="/proyecto/products/5">
                     <div class="img-sections-container">
                         <img class="section-link-img" src="./assets/img/accesoriosfinal.avif" alt="">
                     </div>
@@ -31,7 +31,7 @@
                 </a>
             </div>
             <div class="section-link">
-                <a href="" >
+                <a href="/proyecto/products/2" >
                     <div class="img-sections-container">
                         <img class="section-link-img" src="./assets/img/azfusfinal.jpeg" alt="">
                     </div>
@@ -41,7 +41,7 @@
                 </a>
             </div>
             <div class="section-link">
-                <a href="" >
+                <a href="/proyecto/products/3" >
                     <div class="img-sections-container">
                         <img class="section-link-img" src="./assets/img/esterillafinal.avif" alt="">
                     </div>
@@ -51,7 +51,7 @@
                 </a>
             </div>
             <div class="section-link">
-                <a href="">
+                <a href="/proyecto/products/4">
                     <div class="img-sections-container">
                         <img class="section-link-img" src="./assets/img/mantasfinal.avif" alt="">
                     </div>
@@ -61,7 +61,7 @@
                 </a>
             </div>
             <div class="section-link">
-                <a href="" >
+                <a href="/proyecto/products/6" >
                     <div class="img-sections-container">
                         <img class="section-link-img" src="./assets/img/meditacionfinal.png" alt="">
                     </div>
