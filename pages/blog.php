@@ -1,1 +1,0 @@
-<main><h1>Esto es el blog</h1></main>
