@@ -358,4 +358,6 @@
             </section>
         </section>
     </header>
-    <?php ?>
+    <?php if (isset($msg)) {
+        echo var_dump($msg);
+    } ?>

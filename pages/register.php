@@ -1,5 +1,3 @@
-<?php if (isset($msg))
-    echo $msg; ?>
 <main id="user-reg-f">
 
     <div class="container">
@@ -37,7 +35,7 @@
         </div>
 
         <div class="form-user-reg">
-            <form action="/proyecto/register" method="post">
+            <form action="/proyecto/register" method="post" enctype="multipart/form-data">
 
                 <!-- PAGINA 1 -->
                 <div class="page movPag">

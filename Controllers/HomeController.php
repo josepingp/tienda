@@ -296,6 +296,8 @@ class HomeController
                 $jwt = $this->authJWT->createSessionToken($user, './');
                 setcookie('JWT', $jwt['jwt'], $jwt['exp'], '/', '', true);
 
+                // $msg = $_FILES;
+                // $this->pages->render('register', ['msg' => $msg]);
                 header('Location: /proyecto');
         }
     }
