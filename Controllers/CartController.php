@@ -2,6 +2,7 @@
 namespace Controllers;
 
 use Lib\AuthJWT;
+use Services\ProductsService;
 use Services\UsersService;
 use Lib\Pages;
 
@@ -11,10 +12,12 @@ class CartController
     private UsersService $service;
     private Pages $pages;
     private AuthJWT $authJWT;
+    private ProductsService $productsService;
 
     public function __construct()
     {
         $this->service = new UsersService();
+        $this->productsService = new ProductsService();
         $this->pages = new Pages();
         $this->authJWT = new AuthJWT();
     }
@@ -22,14 +25,18 @@ class CartController
 
     public function load()
     {
-        if ($this->authJWT->accessState()) {
+        if (isset($_SESSION['cart'])) {
+            $ids = $_SESSION['cart'];            
+            $products = $this->productsService->findProductsByIds($ids);
 
-            $user = $this->service->findUserByEmail($_SESSION['email']);
-            $this->pages->render('cart', ['user' => $user]);
-
+            if ($this->authJWT->accessState()) {                
+                $user = $this->service->findUserByEmail($_SESSION['email']);
+                $this->pages->render('cart', ['user' => $user, 'products' => $products]);
+            } else {
+                $this->pages->render('cart', ['products' => $products]);
+            }
         } else {
             $this->pages->render('cart');
-
         }
     }
 }

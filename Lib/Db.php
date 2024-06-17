@@ -24,6 +24,11 @@ class Db {
         return $conexion;
     }
 
+    public function prepare($sql): mixed
+    {
+        return $this->conexion->prepare($sql);
+    }
+
     public function query(string $sql): void {
         $this->response = $this->conexion->query($sql);
     }

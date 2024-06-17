@@ -64,4 +64,9 @@ class ProductsService
     {
         return $this->repo->findAllProductsByCategory($categoryId);
     }
+
+    public function findProductsByIds($ids): ?array
+    {
+        return $this->repo->findProductsByIds($ids);
+    }
 }

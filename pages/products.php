@@ -67,7 +67,7 @@
         window.addEventListener('resize', handleResize);
         
         menuBtn.addEventListener('click', function () {
-            menu.classList.toggle('active');
+            menu.classList.toggle('active-p');
         })
         
         document.querySelectorAll('.p-l-c-btn').forEach(button => {
@@ -86,7 +86,7 @@
                 } else {
                     cartCounter.innerHTML = 1;
                 }
-               
+
                 
             })         
         });

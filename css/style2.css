@@ -1322,7 +1322,7 @@ a {
     transition: all .3s;   
 }
 
-.active {
+.active-p {
     transform: translateX(100%);
 }
 

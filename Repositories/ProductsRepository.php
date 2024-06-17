@@ -4,6 +4,7 @@ namespace Repositories;
 use Lib\Db;
 use Models\Product;
 
+
 class ProductsRepository
 {
     private Db $conexion;
@@ -146,6 +147,22 @@ class ProductsRepository
     {
         $this->conexion->query("SELECT products.id, products.name, products.price FROM products WHERE category_id = $categoryId");
         return $this->conexion->getAll();
+    }
+
+    public function findProductsByIds($ids): ?array
+    {
+        $placeholders = implode(', ', array_fill(0, count($ids), '?'));
+        $stmt = $this->conexion->prepare("SELECT name, product_code, price FROM products WHERE id IN ($placeholders)");
+
+        $types = str_repeat('i', count($ids));
+        $stmt->bind_param($types, ...$ids);
+
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        return $result->fetch_all(MYSQLI_ASSOC);
+
+
     }
 }
 

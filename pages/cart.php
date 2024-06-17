@@ -1,3 +1,4 @@
+<?php if (!isset($products))echo 'No hay ningun pproducto en la cesta'; ?>
 <main id="cart">
         <h1 class="tittle">
             Carrito
@@ -5,7 +6,6 @@
         <table class="cart-list">
             <thead>
                 <tr>
-                    <th>Img</th>
                     <th>C. de producto</th>
                     <th>Nombre del producto</th>
                     <th>Cantidad</th>
@@ -14,54 +14,28 @@
                 </tr>
             </thead>
             <tbody>
+                <?php
+                $total = 0;
+                if (isset($products)) {
+                    foreach($products as $product) {
+                        echo '<tr>
+                        <td>'.$product['product_code'].'</td>
+                        <td>'.$product['name'].'</td>
+                        <td>1</td>
+                        <td>'.$product['price'].'</td>
+                        <td><img src="./assets/img/delete_24dp_FILL0_wght400_GRAD0_opsz24.svg" alt=""></td>
+                        </tr>';
+                    $total += (int) $product['price'];
+                }
+            }
+                ?>
                 <tr>
-                    <td><img src="../../repo/product/A80212024.06.14183100.jpeg" alt="product-image" class="list-img-product"></td>
-                    <td>PRD-001</td>
-                    <td>Campanillas de meditación</td>
-                    <td>1</td>
-                    <td>22.90€</td>
-                    <td><img src="./assets/img/delete_24dp_FILL0_wght400_GRAD0_opsz24.svg" alt=""></td>
-                </tr>
-                <tr>
-                    <td><img src="../../repo/product/A80212024.06.14183100.jpeg" alt="product-image" class="list-img-product"></td>
-                    <td>PRD-001</td>
-                    <td>Campanillas de meditación</td>
-                    <td>1</td>
-                    <td>22.90€</td>
-                    <td><img src="./assets/img/delete_24dp_FILL0_wght400_GRAD0_opsz24.svg" alt=""></td>
-                </tr>
-                <tr>
-                    <td><img src="../../repo/product/A80212024.06.14183100.jpeg" alt="product-image" class="list-img-product"></td>
-                    <td>PRD-001</td>
-                    <td>Campanillas de meditación</td>
-                    <td>1</td>
-                    <td>22.90€</td>
-                    <td><img src="./assets/img/delete_24dp_FILL0_wght400_GRAD0_opsz24.svg" alt=""></td>
-                </tr>
-                <tr>
-                    <td><img src="../../repo/product/A80212024.06.14183100.jpeg" alt="product-image" class="list-img-product"></td>
-                    <td>PRD-001</td>
-                    <td>Campanillas de meditación</td>
-                    <td>1</td>
-                    <td>22.90€</td>
-                    <td><img src="./assets/img/delete_24dp_FILL0_wght400_GRAD0_opsz24.svg" alt=""></td>
-                </tr>
-                <tr>
-                    <td><img src="../../repo/product/A80212024.06.14183100.jpeg" alt="product-image" class="list-img-product"></td>
-                    <td>PRD-001</td>
-                    <td>Campanillas de meditación</td>
-                    <td>1</td>
-                    <td>22.90€</td>
-                    <td><img src="./assets/img/delete_24dp_FILL0_wght400_GRAD0_opsz24.svg" alt=""></td>
-                </tr>
-                <tr>
-                    <td><img src="../../repo/product/A80212024.06.14183100.jpeg" alt="product-image" class="list-img-product"></td>
-                    <td>PRD-001</td>
-                    <td>Campanillas de meditación</td>
-                    <td>1</td>
-                    <td>22.90€</td>
-                    <td><img src="./assets/img/delete_24dp_FILL0_wght400_GRAD0_opsz24.svg" alt=""></td>
-                </tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td><strong>Total: </strong></td>
+                        <td><strong><?=$total?> €</strong></td>
+                    </tr>
             </tbody>
         </table>
         <div class="cart-btns">
