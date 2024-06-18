@@ -40,6 +40,6 @@
         </table>
         <div class="cart-btns">
             <a href="" class="cart-btn">Continuar comprando</a>
-            <a href="" class="cart-btn">Pasar a caja</a>
+            <a href="/proyecto/checkout" class="cart-btn">Pasar a caja</a>
         </div>
     </main>

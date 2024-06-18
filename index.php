@@ -3,17 +3,18 @@ require_once "inc/autoloader.php";
 require_once "./vendor/autoload.php";
 require_once "config.php";
 
+use Lib\Router;
 use Controllers\AccountController;
 use Controllers\BlogController;
 use Controllers\HomeController;
 use Controllers\SuppliersController;
-use Lib\Router;
 use Controllers\AdminUsersController;
 use Controllers\AdminProductsController;
 use Controllers\ProductsContoller;
 use Controllers\ContactController;
 use Controllers\CartController;
 use Controllers\CategoriesController;
+use Controllers\CheckoutController;
 
 session_start();
 
@@ -51,6 +52,10 @@ Router::add('GET', '/products/:id', function ($category) {
 
 Router::add('POST', '/products/:id', function () {
     return (new ProductsContoller())->addProductToCart();
+});
+
+Router::add('GET', '/checkout', function() {
+    return (new CheckoutController())->load();
 });
 
 Router::add('GET', '/blog', function () {
