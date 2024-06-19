@@ -92,7 +92,7 @@ class CheckoutController
                     $this->service->save($userData);
                 }
 
-                if (!isset($_POST['shpping_address_id'])) {
+                if (!isset($_POST['shipping_address_id'])) {
                     $street = $_POST['street'];
                     $number = $_POST['shipping-number'];
                     $floor = $_POST['floor'];
@@ -110,7 +110,6 @@ class CheckoutController
                         'user_id' => $user_id,
                         'is_main' => $isMain
                     ];
-
 
                     $this->directionsService->save($direction);
                 }
