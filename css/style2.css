@@ -1540,6 +1540,20 @@ select {
     width: 80%;
 }
 
+.btns-container.check {
+    /* justify-content: center; */
+    width: 80%;
+    font-size: 1rem;
+    flex-direction: column;
+    align-items: center;
+    margin: auto;
+}
+
+.direction-check {
+    width: 1.2rem;
+    margin: .3rem;
+}
+
 .btns-container button {
     background-color: var(--primary);
     color: var(--black);
@@ -1581,6 +1595,7 @@ select {
     display: flex;
     gap: .5rem;
 }
+
 
 
 @media (max-width: 350px) {

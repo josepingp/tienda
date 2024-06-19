@@ -58,6 +58,10 @@ Router::add('GET', '/checkout', function() {
     return (new CheckoutController())->load();
 });
 
+Router::add('POST', '/checkout', function() {
+    return (new CheckoutController())->pay();
+});
+
 Router::add('GET', '/blog', function () {
     return (new BlogController())->load();
 });
