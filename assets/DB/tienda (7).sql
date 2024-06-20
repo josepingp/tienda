@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost
--- Tiempo de generación: 11-06-2024 a las 20:46:26
+-- Tiempo de generación: 20-06-2024 a las 21:43:35
 -- Versión del servidor: 10.4.28-MariaDB
 -- Versión de PHP: 8.2.4
 
@@ -20,8 +20,6 @@ SET time_zone = "+00:00";
 --
 -- Base de datos: `tienda`
 --
-CREATE DATABASE IF NOT EXISTS `tienda` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
-USE `tienda`;
 
 -- --------------------------------------------------------
 
@@ -58,11 +56,35 @@ CREATE TABLE `orders` (
   `id` int(10) NOT NULL,
   `order_code` varchar(100) NOT NULL,
   `user_id` int(10) NOT NULL,
+  `shipping_address_id` int(10) NOT NULL,
   `order_date` datetime NOT NULL,
   `order_total_amount` decimal(10,2) NOT NULL,
   `payment_method_id` int(10) NOT NULL,
   `status_id` int(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `orders`
+--
+
+INSERT INTO `orders` (`id`, `order_code`, `user_id`, `shipping_address_id`, `order_date`, `order_total_amount`, `payment_method_id`, `status_id`) VALUES
+(1, '1', 71, 1, '2024-06-20 13:55:22', 105.00, 3, 1),
+(2, '2', 71, 1, '2024-06-20 14:01:02', 105.00, 3, 1),
+(3, '3', 71, 1, '2024-06-20 14:03:28', 105.00, 3, 1),
+(4, '4', 71, 1, '2024-06-20 15:10:48', 105.00, 3, 1),
+(5, '5', 71, 1, '2024-06-20 15:12:41', 105.00, 3, 1),
+(6, '6', 71, 1, '2024-06-20 15:13:01', 105.00, 1, 1),
+(7, '7', 70, 4, '2024-06-20 18:23:35', 34.00, 3, 1),
+(8, '8', 70, 5, '2024-06-20 18:24:46', 34.00, 3, 1),
+(9, '9', 70, 4, '2024-06-20 18:25:05', 34.00, 3, 1),
+(10, '10', 70, 4, '2024-06-20 18:29:55', 34.00, 3, 1),
+(11, '11', 70, 4, '2024-06-20 18:31:00', 34.00, 3, 1),
+(12, '12', 91, 6, '2024-06-20 19:16:41', 57.00, 3, 1),
+(13, '13', 93, 7, '2024-06-20 19:17:52', 57.00, 3, 1),
+(14, '14', 97, 8, '2024-06-20 19:25:25', 57.00, 3, 1),
+(15, '15', 99, 9, '2024-06-20 19:26:27', 57.00, 3, 1),
+(16, '16', 101, 10, '2024-06-20 20:16:55', 57.00, 3, 1),
+(17, '17', 102, 11, '2024-06-20 20:19:09', 57.00, 3, 1);
 
 -- --------------------------------------------------------
 
@@ -78,6 +100,48 @@ CREATE TABLE `order_details` (
   `unit_price` decimal(10,2) NOT NULL,
   `total_price` decimal(10,2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `order_details`
+--
+
+INSERT INTO `order_details` (`id`, `order_id`, `product_id`, `quantity`, `unit_price`, `total_price`) VALUES
+(1, 3, 75, 1, 45.95, 45.95),
+(2, 3, 76, 1, 60.50, 60.50),
+(3, 4, 75, 1, 45.95, 45.95),
+(4, 4, 76, 1, 60.50, 60.50),
+(5, 5, 75, 1, 45.95, 45.95),
+(6, 5, 76, 1, 60.50, 60.50),
+(7, 6, 75, 1, 45.95, 45.95),
+(8, 6, 76, 1, 60.50, 60.50),
+(9, 7, 60, 1, 19.00, 19.00),
+(10, 7, 65, 1, 15.00, 15.00),
+(11, 8, 60, 1, 19.00, 19.00),
+(12, 8, 65, 1, 15.00, 15.00),
+(13, 9, 60, 1, 19.00, 19.00),
+(14, 9, 65, 1, 15.00, 15.00),
+(15, 10, 60, 1, 19.00, 19.00),
+(16, 10, 65, 1, 15.00, 15.00),
+(17, 11, 60, 1, 19.00, 19.00),
+(18, 11, 65, 1, 15.00, 15.00),
+(19, 12, 59, 1, 30.99, 30.99),
+(20, 12, 64, 1, 12.90, 12.90),
+(21, 12, 65, 1, 15.00, 15.00),
+(22, 13, 59, 1, 30.99, 30.99),
+(23, 13, 64, 1, 12.90, 12.90),
+(24, 13, 65, 1, 15.00, 15.00),
+(25, 14, 59, 1, 30.99, 30.99),
+(26, 14, 64, 1, 12.90, 12.90),
+(27, 14, 65, 1, 15.00, 15.00),
+(28, 15, 59, 1, 30.99, 30.99),
+(29, 15, 64, 1, 12.90, 12.90),
+(30, 15, 65, 1, 15.00, 15.00),
+(31, 16, 59, 1, 30.99, 30.99),
+(32, 16, 64, 1, 12.90, 12.90),
+(33, 16, 65, 1, 15.00, 15.00),
+(34, 17, 59, 1, 30.99, 30.99),
+(35, 17, 64, 1, 12.90, 12.90),
+(36, 17, 65, 1, 15.00, 15.00);
 
 -- --------------------------------------------------------
 
@@ -141,9 +205,46 @@ CREATE TABLE `photos` (
 --
 
 INSERT INTO `photos` (`id`, `url`, `is_main`, `product_id`) VALUES
-(1, 'asdasdar12024.06.11195716.jpeg', 1, 30),
-(2, 'prua33412024.06.11203946.jpeg', 1, 40),
-(3, 'prua33442024.06.11203946.jpeg', 0, 40);
+(19, 'Bt40112024.06.14174035.jpeg', 1, 58),
+(20, 'Bt40132024.06.14174035.jpeg', 0, 58),
+(21, 'Bt40142024.06.14174035.jpeg', 0, 58),
+(22, 'S50112024.06.14174232.png', 1, 59),
+(23, 'S50132024.06.14174232.png', 0, 59),
+(24, 'B60112024.06.14174735.jpeg', 1, 60),
+(25, 'B60132024.06.14174735.jpeg', 0, 60),
+(26, 'B60142024.06.14174735.jpeg', 0, 60),
+(27, 'Z10312024.06.14175038.png', 1, 61),
+(28, 'Z10322024.06.14175038.jpeg', 0, 61),
+(29, 'Z10332024.06.14175038.jpeg', 0, 61),
+(30, 'Z10342024.06.14175038.jpeg', 0, 61),
+(31, 'E70112024.06.14175253.png', 1, 62),
+(32, 'E70122024.06.14175253.png', 0, 62),
+(33, 'E70132024.06.14175253.png', 0, 62),
+(34, 'E70142024.06.14175253.png', 0, 62),
+(35, 'E70212024.06.14175451.png', 1, 63),
+(36, 'E70232024.06.14175451.jpeg', 0, 63),
+(37, 'E70242024.06.14175451.png', 0, 63),
+(38, 'Bl30212024.06.14175854.png', 1, 64),
+(39, 'Bl30222024.06.14175854.png', 0, 64),
+(40, 'Bl30232024.06.14175854.jpeg', 0, 64),
+(41, 'BL30112024.06.14180001.png', 1, 65),
+(42, 'BL30132024.06.14180001.png', 0, 65),
+(43, 'B20112024.06.14180145.png', 1, 66),
+(44, 'B20132024.06.14180145.png', 0, 66),
+(45, 'B20142024.06.14180145.png', 0, 66),
+(50, 'Z10232024.06.14182401.png', 0, 71),
+(51, 'Z10112024.06.14182639.jpeg', 0, 72),
+(52, 'Z10132024.06.14182639.jpeg', 1, 72),
+(53, 'C80112024.06.14182834.jpeg', 1, 73),
+(54, 'C80122024.06.14182834.jpeg', 0, 73),
+(55, 'C80132024.06.14182834.jpeg', 0, 73),
+(56, 'A80212024.06.14183100.jpeg', 1, 74),
+(57, 'A80222024.06.14183100.jpeg', 0, 74),
+(58, 'A80232024.06.14183100.jpeg', 0, 74),
+(59, 'R90112024.06.14183323.jpeg', 1, 75),
+(60, 'R90132024.06.14183323.jpeg', 0, 75),
+(61, 'R90212024.06.14183500.jpeg', 1, 76),
+(62, 'R90232024.06.14183500.jpeg', 0, 76);
 
 -- --------------------------------------------------------
 
@@ -168,46 +269,21 @@ CREATE TABLE `products` (
 --
 
 INSERT INTO `products` (`id`, `product_code`, `name`, `description`, `price`, `stock`, `category_id`, `supplier_id`, `is_outstanding`) VALUES
-(1, 'PRD001', 'Silla de Oficina Ejecutiva', 'Silla ergonómica para una comodidad superior.', 250.99, 10, 1, 3, 1),
-(2, 'PRD002', 'Escritorio para Computadora', 'Amplio escritorio con espacio para monitor y accesorios.', 199.99, 15, 1, 5, 1),
-(3, 'PRD003', 'Archivador Metálico', 'Archivador resistente con 4 cajones para una organización eficiente.', 79.99, 20, 1, 7, 0),
-(4, 'PRD004', 'Cafetera Eléctrica', 'Cafetera rápida y fácil de usar para disfrutar de un café delicioso en su oficina.', 39.99, 5, 2, 2, 1),
-(5, 'PRD005', 'Impresora Láser Multifunción', 'Impresora, copiadora y escáner todo en uno para una mayor productividad.', 149.99, 3, 2, 4, 0),
-(6, 'PRD006', 'Cartuchos de Tóner Negro', 'Cartuchos de tóner de alta calidad para un rendimiento de impresión confiable.', 49.99, 25, 2, 4, 0),
-(7, 'PRD007', 'Tablet Android 10\"', 'Tablet con pantalla táctil de 10\" y sistema operativo Android para entretenimiento y productividad.', 199.99, 8, 3, 1, 1),
-(8, 'PRD008', 'Smartphone de Última Generación', 'Smartphone con pantalla grande, cámara potente y procesador rápido.', 699.99, 5, 3, 8, 1),
-(9, 'PRD009', 'Audífonos Inalámbricos', 'Audífonos inalámbricos con sonido de alta fidelidad para disfrutar de su música sin cables.', 79.99, 12, 3, 6, 1),
-(10, 'PRD010', 'Cargador Portátil', 'Cargador portátil para mantener sus dispositivos móviles alimentados en cualquier lugar.', 29.99, 18, 3, 9, 0),
-(11, 'PRD011', 'Camiseta Casual', 'Camiseta cómoda y versátil para uso diario.', 19.99, 50, 4, 10, 0),
-(12, 'PRD012', 'Jeans Ajustados', 'Jeans ajustados en diferentes tallas y colores.', 39.99, 40, 4, 5, 1),
-(13, 'PRD013', 'Vestido de Noche Elegante', 'Vestido de noche para ocasiones especiales.', 79.99, 10, 4, 3, 1),
-(14, 'PRD014', 'Zapatos Deportivos', 'Zapatos deportivos cómodos y ligeros para entrenamiento o uso casual.', 59.99, 30, 4, 2, 0),
-(15, 'PRD015', 'Papel para Impresora (500 hojas)', 'Paquete de 500 hojas de papel para impresora de alta calidad.', 12.99, 100, 5, 7, 0),
-(16, 'PRD016', 'Tinta para Impresora (Negro)', 'Tinta para impresora de alta duración en color negro.', 19.99, 45, 5, 4, 1),
-(17, 'PRD017', 'Calculadora Científica', 'Calculadora científica avanzada para realizar cálculos complejos.', 49.99, 15, 5, 1, 0),
-(18, 'PRD018', 'Grapadora Eléctrica', 'Grapadora eléctrica para un engrapado rápido y sin esfuerzo.', 24.99, 20, 5, 6, 0),
-(19, 'PRD019', 'Marcadores Permanentes', 'Paquete de marcadores permanentes en varios colores.', 9.99, 25, 5, 9, 0),
-(20, 'PRD020', 'Cinta Adhesiva', 'Cinta adhesiva transparente para diversas aplicaciones.', 4.99, 50, 5, 8, 1),
-(21, 'prueba', 'Juanin', 'fksjngkn', 999.00, 77, 5, 2, 1),
-(22, 'prueba2', 'Juaninn', 'fksjngkn', 999.00, 77, 5, 2, 1),
-(23, 'sfdsfsdd', 'prueba', 'dydhdhgfdhhfdh', 999.00, 77, 5, 2, 1),
-(24, 'prueba3', 'jose', 'gshdfhdhdh', 88.00, 77, 3, 10, 1),
-(25, 'prueba4', 'joselu', 'dzfgsdgsdg', 88.00, 77, 3, 1, 1),
-(26, 'esterilla1', 'la mas comoda', 'dsfsasdf', 22.55, 77, 5, 7, 1),
-(27, 'prueba33', 'esterilla tope gama', 'sdafavfdaf', 999.00, 77, 5, 5, 1),
-(28, 'prueba34', 'pruebaza', 'sdgfsgsgfdsdfg', 88.00, 77, 6, 9, 1),
-(29, 'asdasda', 'Juanindfd', 'afgadsdfsafafadfsadf', 999.00, 77, 6, 5, 1),
-(30, 'asdasdar', 'Juanintry', 'fdghdghdgh', 88.00, 77, 4, 10, 1),
-(31, 'prueba12', 'pruebagg', 'dsgfsfgsdfg', 25.00, 7, 6, 7, 0),
-(32, 'prueba99', 'Juaninghj', 'dfhfghfgjfg', 25.00, 7, 6, 7, 0),
-(33, 'prd44', 'JOSE LUIS', 'sdafasdfasfsdf', 999.00, 77, 3, 10, 0),
-(34, 'prue456', 'JOSE LUISfgh', 'fgdhdghdhgdgh', 999.00, 77, 3, 6, 0),
-(35, 'asdasdah', 'Juanindhdh', 'dhjdhgdfgh', 88.00, 77, 3, 3, 0),
-(36, 'asdasdafh', 'JOSE LUISfhj', 'fhjfjfjhfgj', 65.00, 77, 5, 5, 0),
-(37, 'pruebartyu', 'Juaninryurt', 'rytururtyuryu', 999.00, 77, 3, 9, 0),
-(38, 'asdasda22', 'JOSE LUISdfgd', 'dfzgsdfgsg', 88.00, 77, 6, 6, 0),
-(39, 'prueba38', 'Juaninsdfgsdfg', 'sdfgsdgsdfgsg', 999.00, 77, 3, 6, 0),
-(40, 'prua334', 'JOSE LUISadfaf', 'adfasdfasfdasfdd', 88.00, 77, 6, 5, 0);
+(58, 'Bt401', 'Bolster de lino', 'Los Bolsters de lino organico de alta calida están diseñados específicamente para la práctica de yoga, ya que brindan un soporte estable. El Round Yoga Bolster se usa para apoyar la columna vertebral y la cabeza cuando se usa en algunas posturas de yoga y meditación.\r\nEstá lleno de cáscaras de trigo sarraceno orgánico que brindan un soporte firme que se amolda a la forma de su cuerpo y no se descompondrá con el tiempo. La funda del interior es 100% algodón, con cremallera, lavable a máquina y relleno de trigo sarraceno orgánico', 69.95, 7, 2, 5, 0),
+(59, 'S501', 'Bolsa para esterilla Nana', 'Bolsa de esterilla de yoga de gran resistencia hecha de lona. (100% algodón). Es suficientemente grande para llevar casi cualquier esterilla.', 30.99, 12, 5, 6, 0),
+(60, 'B601', 'Botella Om', 'Todas las botellas OmWater  son elaboradas íntegramente en España con vidrio 100% reciclado siguiendo métodos tradicionales que no contaminan el medio ambiente. Además, comprando la botella estás ayudando a financiar el proyecto OmWater. Diseñada usando proporciones basadas en geometría sagrada.', 19.00, 25, 5, 5, 1),
+(61, 'Z103', 'Zafu Zen', 'El cojín para sentarse es ideal para la meditación zen. Se utiliza idealmente para posturas de meditación de loto o medio loto y es el tamaño de cojín más utilizable que soportará una variedad de posturas diferentes.\r\nHay una cremallera que le permite quitar la cubierta exterior de la almohadilla de relleno interior para permitir que el usuario agregue más relleno para ajustar el loft o la suavidad, lo que más le convenga.\r\nNuestro cojín es plegado para mayor durabilidad y está lleno de cascos orgánicos de trigo de pantano. El cojín tiene un mango útil para facilitar el transporte.', 60.90, 9, 2, 6, 0),
+(62, 'E701', 'Esterilla Gaia', 'Nuestra esterilla de yoga Gaia tiene un grosor de 4 mm y cuenta con una superficie texturizada \"pegajosa\" para mantenerlo en su lugar durante las posturas más desafiantes. Hecha con cloruro de polivinilo .\r\nEs duradero, no tóxico y está hecho de PVC sin látex que no contiene los seis ftalatos más dañinos. Libre de ftalatos DEHP, DBP, BBP, DINP, DIDP y DNOP.', 50.99, 7, 3, 1, 1),
+(63, 'E702', 'Esterilla eco', 'Elaborada con Yute y caucho 100% natural. El tejido de arpillera proporciona una superficie duradera, táctil y agradablemente natural para trabajar al mismo tiempo que proporciona ese AGARRE tan buscado.\r\nEl grosor de 6 mm brinda soporte y amortiguación adicionales al mismo tiempo que mantiene la firmeza para una buena práctica.', 65.00, 15, 3, 6, 0),
+(64, 'Bl302', 'Bloque de yoga reciclado', 'Los bloques de yoga son la herramienta perfecta tanto para principiantes como para yoguis experimentados. Te ayudarán encontrar el equilibrio, mejorar, profundizar en tus posturas o explorar nuevas. Como ajuste o proporcionando altura adicional a tu asana, es el accesorio perfecto en tus sesiones de yoga y pilates.\r\nFabricado en Europa con un 85% de material EVA reciclado, que es uno de los porcentajes más altos de la industria del yoga. 100% reciclable a través de ContinuOM Collective', 12.90, 25, 5, 10, 0),
+(65, 'BL301', 'Bloque de corcho elefante', 'Hecho de corcho sostenible con estampado de elefante, este bloque de yoga de alta calidad es muy firme, más denso y más pesado que los bloques de espuma. La densidad y el peso del bloque de corcho le permiten sentirse seguro y apoyado.\r\nDesde posturas de equilibrio hasta estiramientos y flexiones de espalda con apoyo, un bloque puede permitirte llegar más lejos, profundizar un poco más en tus posturas y apoyarte a lo largo de tu práctica.\r\nMaterial natural muy agradable de tacto. Se limpia fácilmente con un trapo húmedo.\r\nSe venden por unidad, aunque recomendamos tener un set de 2 unidades por persona, dado que en muchas posturas se necesitan dos.', 15.00, 12, 5, 5, 1),
+(66, 'B201', 'Banco de meditación de diseño', 'Banco de meditación desmontable, elegante de diseño ergonómico que te ayuda a sentarte erguido y relajado durante tu meditación. Colócate de rodillas y las piernas se pasan a la derecha y la izquierda del banquito. Gracias a la forma ergonómica y al asiento curvo ligeramente inclinado hacia adelante, puedes colocar tu columna vertebral en su posición vertical natural. De esta forma, los órganos abdominales se alivian y la respiración puede fluir libremente. Además esta postura en el banquito protege las articulaciones de la rodilla y el empeine. El banco de meditación se puede desmontar y, por lo tanto, es perfecto para llevarlo en viajes, retiros de meditación y seminarios. Así que también puedes llevarlo contigo a retiros de meditación. Esta elaborado con madera de haya de calidad', 60.99, 5, 6, 5, 0),
+(71, 'Z102', 'Zafu grande Nipon', 'El zafu, este cojín redondo tradicional, ofrece un asiento estable que permite mantenerse con las piernas cruzadas o la posición del loto con mayor facilidad', 80.00, 7, 2, 6, 0),
+(72, 'Z101', 'Zafu negro nature', 'El zafu, este cojín redondo tradicional, ofrece un asiento estable que permite mantenerse con las piernas cruzadas o la posición del loto con mayor facilidad.\r\n\r\nEs de algodón negro y relleno con kapok, la fibra vegetal tradicionalmente utilizada en Asia para los zafus. Cultivada en el Lejano Oriente, la fibra ligera de Kapokier es resistente al agua y a la putrefacción. Consiste en fibras cercanas a la apariencia del algodón, finas y sedosas. Más firme y más denso que el algodón, el kapok le permite al zafu mantener su forma para sentarse mejor.', 70.90, 12, 2, 5, 0),
+(73, 'C801', 'Tingshas tibetanas', 'Comúnmente se usa para marcar el inicio o el final de un período de meditación budista o práctica espiritual.\r\nEstán elaboradas con bronce y restos de cuencos antiguos y una correa de cuero sólida para conectar estos dos tingshas. \r\nSe entregan con una funda de algodón estampada.', 40.00, 15, 5, 3, 1),
+(74, 'A802', 'Armonizador Zen', 'Con un ligero golpe de mazo, esta campana emite una nota única, potente y duradera que ayuda a focalizar y calmar la mente. Usada a menudo durante sesiones de meditación o de sanación.\r\nDispone de 3 varillas macizas de aluminio pulido de color plateado, y un mazo de color negro. Tienes tres notas musicales: Sol, Re y Fa.', 50.00, 3, 5, 6, 0),
+(75, 'R901', 'Camiseta Banbú hombre', 'El tejido de bambú aterciopelado y sedoso ofrece un ajuste maravillosamente ligero y cómodo que es ideal para las actividades de yoga y de deporte, pero también para la vida diaria.\r\nLa fibra de viscosa de bambú, hecha de los tallos de bambú, que crece en un ambiente tropical sin fertilizante ni pesticidas, puede absorber la humedad a un alto grado sin darle la impresión de ser mojado, y trae una sensación de frescura en todas las situaciones, evitando olores.\r\n70% de viscosa de pulpa de bambú 25% de algodón  5 % elastano.\r\n Ecotex Standard 100', 45.95, 10, 1, 3, 1),
+(76, 'R902', 'Pantalón Sutra negro', 'El pantalón Sutra está diseñado para un calce holgado de una mezcla de cáñamo y poliéster reciclado. Tejida con un refuerzo en la entrepierna y un toque de spandex para mayor movilidad. La tela es naturalmente de secado rápido y reduce el olor. Completo con un cordón en la cintura.\r\n 53 % cáñamo / 44 % poliéster reciclado / 3 % elastano', 60.50, 15, 1, 3, 0);
 
 -- --------------------------------------------------------
 
@@ -242,12 +318,25 @@ CREATE TABLE `shipping_addresses` (
   `number` int(10) NOT NULL,
   `floor` int(10) DEFAULT NULL,
   `apartment` varchar(10) DEFAULT NULL,
-  `postal_code` varchar(20) NOT NULL,
   `city` varchar(50) NOT NULL,
-  `country` varchar(50) NOT NULL,
   `user_id` int(10) NOT NULL,
   `is_main` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `shipping_addresses`
+--
+
+INSERT INTO `shipping_addresses` (`id`, `street`, `number`, `floor`, `apartment`, `city`, `user_id`, `is_main`) VALUES
+(1, 'conde del real agrado ', 2, 3, 'b', 'Asturias', 71, 1),
+(4, 'conde del real agrado 4', 2, 3, 'b', 'Asturias', 70, 1),
+(5, 'conde del real agrado 4', 2, 3, 'b', 'Asturias', 70, 1),
+(6, 'conde del real agrado 4', 2, 3, 'b', 'Asturias', 91, 0),
+(7, 'conde del real agrado 4', 2, 3, 'b', 'Asturias', 93, 0),
+(8, 'conde del real agrado 4', 2, 3, 'b', 'Asturias', 97, 0),
+(9, 'conde del real agrado 4', 2, 3, 'b', 'Asturias', 99, 0),
+(10, 'conde del real agrado 4', 2, 3, 'b', 'Asturias', 101, 0),
+(11, 'conde del real agrado 4', 2, 3, 'b', 'Asturias', 102, 0);
 
 -- --------------------------------------------------------
 
@@ -290,11 +379,11 @@ CREATE TABLE `users` (
   `last_name1` varchar(255) NOT NULL,
   `last_name2` varchar(255) DEFAULT NULL,
   `email` varchar(200) NOT NULL,
-  `birth_date` date NOT NULL,
+  `birth_date` date DEFAULT NULL,
   `phone` varchar(255) DEFAULT NULL,
   `date_registered` datetime NOT NULL,
   `photo_url` varchar(255) DEFAULT NULL,
-  `password` varchar(255) NOT NULL,
+  `password` varchar(255) DEFAULT NULL,
   `card_number` varchar(100) DEFAULT NULL,
   `role_id` int(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -342,9 +431,7 @@ INSERT INTO `users` (`id`, `name`, `last_name1`, `last_name2`, `email`, `birth_d
 (37, 'prueba', 'apellido', 'apellido', 'Email@ejemplo2.com', '2000-11-22', '', '2024-05-28 16:01:10', '', '$2y$10$NjtiK1NU9Ri/93hCtoQQP.Kkz71p.Amwm4VUixFV16UKhBOww4eKy', '', 2),
 (38, 'pruebaJsongarcia', 'sfgsg', 'GARCIA PELAYO', 'josefsdpingp@hotmail.com', '2024-05-11', '', '2024-05-28 22:02:35', '', '$2y$10$kPWPvMgasnrLUIcOGoBoCOEzakTFuib1M2rY4vxGHF2cKMuwWIOhi', '', 2),
 (39, 'pruebaJsongarcia', 'sfgsg', 'GARCIA PELAYO', 'josefsdpdingp@hotmail.com', '2024-05-11', '', '2024-05-28 22:02:48', '', '$2y$10$3blHzjMw3sg4cFvw74xjZOtabuUY2Ht2a68wazeN79PTsdlTYW8k2', '', 2),
-(40, 'jselu', 'apellido', 'GARCIA PELAYO', 'josepingp@hoail.com', '2024-05-01', '', '2024-05-29 16:08:17', 'jseluapellidoGARCIA PELAYO_2024.05.29_160817.png', '$2y$10$Yo.uOo.lAiRxFFzMq920e.vCkn0lhjHq3TWhqf0twKDVEC0UO2b42', '', 2),
 (41, 'zigaRRITO', 'AÑLKSNALKN', 'KÑVNJÑNAKÑANS', 'jingp@hotmail.com', '2024-05-15', '', '2024-05-29 16:11:46', 'zigaRRITOAÑLKSNALKNKÑVNJÑNAKÑANS_2024.05.29_161146.jpeg', '$2y$10$RwaFNOWANa8PzIOKqacmOecDxETgX1Ibx.DERRFY6GJOCUnREF5De', '', 1),
-(42, 'JOSE LUIS', 'apellido', 'GARCIA PELAYO', 'josepingp@hotil.com', '2024-05-17', '', '2024-05-29 16:13:08', 'JOSE LUISapellidoGARCIA PELAYO_2024.05.29_161308.png', '$2y$10$yZES2EHycFgssrX6LuMEjufSr5UcmoTwCes.hOSTKwWspAC1Kis9.', '', 1),
 (43, 'JOSE LUIS', 'apellido', 'GARCIA PELAYO', 'joselksdjabhfpingp@hotmail.com', '2024-05-10', '', '2024-05-29 16:16:04', 'JOSE LUISapellidoGARCIA PELAYO_2024.05.29_161604.png', '$2y$10$iAmgN.IFiKVFL7I23Qu75u0IIGpeyvtlskmkWsEIaFVwOCCWvkVQO', '', 1),
 (44, 'JOSE LUIS', 'Gonzalita', 'GARCIA PELAYO', 'jdsfosepingp@hotmail.com', '2024-05-09', '', '2024-05-29 16:18:08', 'JOSE LUISGonzalitaGARCIA PELAYO_2024.05.29_161808.png', '$2y$10$.Z22RlebnhrdFo1VO5y0feONRX.Tkr5BDSqGqvemFAHIUcEUWaNQO', '', 2),
 (45, 'JOSE LUIS', 'apellido', 'GARCIA PELAYO', 'josepinretgp@hotmail.com', '2024-05-08', '', '2024-05-29 16:19:10', 'JOSE LUISapellidoGARCIA PELAYO_2024.05.29_161910.png', '$2y$10$/fEbdZNHwvY04nm4v1c9ZuPr3WJC.VA896h35EyYKMWG5ZPpUqyLu', '', 2),
@@ -359,10 +446,8 @@ INSERT INTO `users` (`id`, `name`, `last_name1`, `last_name2`, `email`, `birth_d
 (54, 'JOSE LUIS', 'Gonzalita', 'GARCIA PELAYO', 'josesdfsfasdasdpingp@hotmail.com', '2024-05-30', '', '2024-05-29 16:47:38', 'JOSE LUISGonzalitaGARCIA PELAYO_2024.05.29_164738.png', '$2y$10$ohAT.J0L./8684x3jCxKO.7Aeyh38syLwKZli5.QUa69qtz7bVQvS', '', 3),
 (55, 'JOSE LUIS', 'Gonzalita', 'GARCIA PELAYO', 'josesdfsfasdfsfdsdasdpingp@hotmail.com', '2024-05-30', '', '2024-05-29 16:48:39', 'JOSE LUISGonzalitaGARCIA PELAYO_2024.05.29_164839.png', '$2y$10$Ht3M4m3pBdAdk32UVOf3BOJBdT2g29Bcc8k.72lR6ZxMwTeSmsJNe', '', 3),
 (56, 'JOSE LUIS', 'Gonzalita', 'GARCIA PELAYO', 'joseasdfasdfpingp@hotmail.com', '2024-05-16', '', '2024-05-29 16:49:17', 'JOSE LUISGonzalitaGARCIA PELAYO_2024.05.29_164917.png', '$2y$10$vjodvs2rJCVdBE9j.qre8OEFp4//OrC/doA8CbNFoskqR6lxxjdv6', '', 1),
-(57, 'JOSE LUIS', 'AÑLKSNALKN', 'GARCIA PELAYO', 'josepingp@hotadfadsfmail.com', '0002-02-22', '', '2024-05-29 16:52:04', '', '$2y$10$rAJeWEW9ZiMapdcxv2eJZuh4KMABca0JDL8MpaiUqTVSaVNdcS2C6', '', 1),
 (58, 'JOSE LUIS', 'xzcvvzxvxz', 'GARCIA PELAYO', 'josezxcvxcvpingp@hotmail.com', '2024-05-07', '', '2024-05-29 17:12:37', '', '$2y$10$YGBTW0HgUqihu5rguFbE7udsTUuHzUJF3fl0GR2IvWSsYp3Nau4sS', '', 1),
 (59, 'JOSE LUIS', 'xzcvvzxvxz', 'GARCIA PELAYO', 'josezxcvxcasdasdvpingp@hotmail.com', '2024-05-07', '', '2024-05-29 17:22:41', '', '$2y$10$9BcxtEGRSLE8TSE3GVZ4p.8wHfmPILO.ukLBakP4ovjxgRk15inWG', '', 1),
-(60, 'sadfsafadsf', 'sadfasffda', 'asdfsadfasf', 'josepingp@hotm234243ail.com', '1111-11-21', '', '2024-05-29 17:23:24', '', '$2y$10$wbpU/435dgCFoY59Dr36O.1fyt1i6qjcJgSjNYeMB2Ps0RtQSEMtC', '', 2),
 (61, 'JOSE LUIS', 'garcia', 'GARCIA PELAYO', 'jose133123pingp@hotmail.com', '1111-11-11', '', '2024-05-29 17:44:59', '', '$2y$10$nz/nzHpNdCxdcaDcwQagju8mZNKeH8otzlh63k5E9b8yq.wN6WAvS', '', 3),
 (62, 'JOSE LUIS', 'garcia', 'GARCIA PELAYO', 'josepi123444ngp@hotmail.com', '1111-11-11', '', '2024-05-29 17:46:21', '', '$2y$10$.j5DE3wMboXxSYYDkjovmOLYiay3dqRcFrxO7zoHJ.HSkQAvGFvbW', '', 2),
 (63, 'JOSE LUIS', 'apellido', 'GARCIA PELAYO', 'josepsdfgsdfgingp@hotmail.com', '2222-02-22', '', '2024-05-29 17:49:15', '', '$2y$10$BdKHGqCUrLoOJBQ1d38Mp.kMsGsAU9mEahIRHzOuISFvIPY/aGpmK', '', 1),
@@ -370,8 +455,32 @@ INSERT INTO `users` (`id`, `name`, `last_name1`, `last_name2`, `email`, `birth_d
 (65, 'JOSE LUIS', 'garcia', 'GARCIA PELAYO', 'josepin1231313gp@hotmail.com', '1111-11-11', '', '2024-05-29 18:30:41', 'JOSE LUISgarciaGARCIA PELAYO2024.05.29183041.png', '$2y$10$43YeBo6YuJbR/7NokA.kY.yzKznVzRV5.l8eTt.XktTwIGqFcadMe', '', 3),
 (66, 'JOSE LUIS', 'garcia', 'GARCIA PELAYO', 'josep13in1231313gp@hotmail.com', '1111-11-11', '', '2024-05-29 18:37:45', 'JOSELUISgarciaGARCIAPELAYO2024.05.29183745.png', '$2y$10$fimVXUAC07JfTyuAw7g.8eXdIY8M0Te5/Oa03RAxMSDmKH/z4YS.e', '', 3),
 (67, 'JOSE LUIS', 'Garcia', 'GARCIA PELAYO', 'josepi23442ngp@hotmail.com', '1111-11-11', '', '2024-05-30 16:11:13', '', '$2y$10$zShi2XnKhHKtZhb13YGRGetT8F4oH.lf/GuRvbZQHVRlY2/X3JYPG', '', 2),
-(70, 'Jose Luis', 'Garcia', 'Pelayo', 'mimail@hotmail.com', '2024-06-08', '', '2024-06-04 19:53:27', 'JoseLuisGarciaPelayo2024.06.04195327.png', '$2y$10$1V/EX4CJG8cVmlzW1h6Tt.8z28qW.Fd0Dwn/bk6WpB5uiINEb4Jsu', '', 1),
-(71, 'JOSE LUIS', 'Garcia', 'PELAYO', 'josepingp@hotmail.com', '2024-05-28', '', '2024-06-05 18:47:27', 'JOSELUISGarciaPELAYO2024.06.05184727.jpeg', '$2y$10$A04QKO96t72x3P.clgb3VeC21kghlLXCpquZOgpUZjv7IU9eUuqTC', '', 2);
+(70, 'Jose Luis', 'Garcia', 'Pelayo', 'mimail@hotmail.com', '2024-06-08', '658780643', '2024-06-04 19:53:27', 'JoseLuisGarciaPelayo2024.06.04195327.png', '$2y$10$1V/EX4CJG8cVmlzW1h6Tt.8z28qW.Fd0Dwn/bk6WpB5uiINEb4Jsu', '', 1),
+(71, 'JOSE LUIS', 'Garcia', 'PELAYO', 'josepingp@hotmail.com', '2024-05-28', '658780643', '2024-06-05 18:47:27', 'JOSELUISGarciaPELAYO2024.06.05184727.jpeg', '$2y$10$A04QKO96t72x3P.clgb3VeC21kghlLXCpquZOgpUZjv7IU9eUuqTC', '', 2),
+(73, 'Jose Luis', 'Garcia', 'Pelayo', 'tumail@hotmail.com', '2024-03-19', NULL, '2024-06-16 20:55:22', '', '$2y$10$1E6DSw7bBv3Z1pliKlXHOuUHooIlQGvGpU1IO6N02zT6Y.ynKs22S', NULL, 2),
+(77, 'JOSE LUIS', 'apellido', 'GARCIA PELAYO', 'jvosepingp@hotmail.com', '2024-06-06', NULL, '2024-06-16 21:09:46', 'JOSELUISapellidoGARCIAPELAYO2024.06.16210947.jpeg', '$2y$10$6ju8pfos6Z9TYLDOQzraoe1iyGsWWhS/9bgl27XAQccCkrfdNYkZC', NULL, 2),
+(78, 'JOSE LUIS', 'apellido', 'GARCIA PELAYO', 'josepginggp@hotmail.com', '2024-06-05', NULL, '2024-06-16 21:12:11', 'JOSELUISapellidoGARCIAPELAYO2024.06.16211211.jpeg', '$2y$10$jJybTERLHoJ.3Kd.mU.4tOFaf84E5aRVkU8tzZo2SKNSek9wkPsE.', NULL, 2),
+(79, 'JOSE LUIS', 'apellido', 'GARCIA PELAYO', 'josepincgp@hotmail.com', '2024-06-07', NULL, '2024-06-16 21:13:02', 'JOSELUISapellidoGARCIAPELAYO2024.06.16211302.jpeg', '$2y$10$DP05VKecszNTg0.XKVgV2.YQu/wH8I53RmLHwb/57oEmqtdejPNoq', NULL, 2),
+(80, 'JOSE LUIS', 'apellido', 'GARCIA PELAYO', 'josepinvcgp@hotmail.com', '2024-06-06', NULL, '2024-06-16 21:16:27', 'JOSELUISapellidoGARCIAPELAYO2024.06.16211627.jpeg', '$2y$10$akXOBa0MKJP2oe1CaPSW4uJvMQhWFTXBkhJAqgFr5asxTXnTc0B46', NULL, 2),
+(83, 'JOSE LUIS', 'GARCIA PELAYO', 'Pelayo', 'josepinhhgp@hotmail.com', NULL, NULL, '2024-06-20 19:05:26', NULL, NULL, NULL, 3),
+(85, 'JOSE LUIS', 'GARCIA PELAYO', 'Pelayo', 'josephinhhgp@hotmail.com', NULL, NULL, '2024-06-20 19:07:21', NULL, NULL, NULL, 3),
+(86, 'JOSE LUIS', 'GARCIA PELAYO', 'Pelayo', 'josephinihhgp@hotmail.com', NULL, NULL, '2024-06-20 19:09:16', NULL, NULL, NULL, 3),
+(88, 'JOSE LUIS', 'GARCIA PELAYO', 'Pelayo', 'jllosephinihhgp@hotmail.com', '2024-06-07', NULL, '2024-06-20 19:10:44', NULL, NULL, NULL, 3),
+(89, 'JOSE LUIS', 'GARCIA PELAYO', 'Pelayo', 'jllosepgghinihhgp@hotmail.com', '2024-06-07', '658780643', '2024-06-20 19:14:12', NULL, 'invitado', NULL, 3),
+(91, 'JOSE LUIS', 'GARCIA PELAYO', 'Pelayo', 'jllosephdgfgghinihhgp@hotmail.com', '2024-06-07', '658780643', '2024-06-20 19:16:41', NULL, 'invitado', NULL, 3),
+(93, 'JOSE LUIS', 'GARCIA PELAYO', 'Pelayo', 'lolerillo@hotmail.com', '2024-06-07', '658780643', '2024-06-20 19:17:52', NULL, 'invitado', NULL, 3),
+(95, 'JOSE LUIS', 'GARCIA PELAYO', 'PELAYO', 'josepiadfngp@hotmail.com', '2024-06-11', '658780643', '2024-06-20 19:25:01', NULL, 'invitado', NULL, 3),
+(97, 'JOSE LUIS', 'GARCIA PELAYO', 'PELAYO', 'joseafdpiadfngp@hotmail.com', '2024-06-11', '658780643', '2024-06-20 19:25:25', NULL, 'invitado', NULL, 3),
+(99, 'JOSE LUIS', 'GARCIA PELAYO', 'PELAYO', 'josefngp@hotmail.com', '2024-06-11', '658780643', '2024-06-20 19:26:27', NULL, 'invitado', NULL, 3),
+(101, 'JOSE LUIS', 'GARCIA PELAYO', 'PELAYO', 'josefdngp@hotmail.com', '2024-06-11', '658780643', '2024-06-20 20:16:55', NULL, 'invitado', NULL, 3),
+(102, 'JOSE LUIS', 'GARCIA PELAYO', 'PELAYO', 'josefddsdngp@hotmail.com', '2024-06-11', '658780643', '2024-06-20 20:19:09', NULL, 'invitado', NULL, 3),
+(103, 'JOSE LUIS', 'GARCIA PELAYO', 'fgfdgddf', 'josepdgdfgingp@hotmail.com', '2024-06-14', '658780643', '2024-06-20 20:19:55', NULL, 'invitado', NULL, 3),
+(105, 'JOSE LUIS', 'GARCIA PELAYO', 'fgfdgddf', 'josdfgingp@hotmail.com', '2024-06-14', '658780643', '2024-06-20 20:28:44', NULL, 'invitado', NULL, 3),
+(107, 'JOSE LUIS', 'GARCIA PELAYO', 'PELAYO', 'jongp@hotmail.com', '2024-06-08', '658780643', '2024-06-20 20:29:25', NULL, 'invitado', NULL, 3),
+(109, 'JOSE LUIS', 'GARCIA PELAYO', 'PELAYO', 'joyungp@hotmail.com', '2024-06-08', '658780643', '2024-06-20 20:29:58', NULL, 'invitado', NULL, 3),
+(110, 'JOSE LUIS', 'GARCIA PELAYO', 'PELAYO', 'josuiepingp@hotmail.com', '2024-06-06', '658780643', '2024-06-20 20:31:08', NULL, 'invitado', NULL, 3),
+(111, 'JOSE LUIS', 'GARCIA PELAYO', 'GARCIA PELAYO', 'josesghpingp@hotmail.com', '2024-06-07', '658780643', '2024-06-20 20:32:53', NULL, 'invitado', NULL, 3),
+(113, 'JOSE LUIS', 'GARCIA PELAYO', 'PELAYO', 'josuiegp@hotmail.com', '2024-06-06', '658780643', '2024-06-20 20:33:37', NULL, 'invitado', NULL, 3);
 
 --
 -- Índices para tablas volcadas
@@ -473,13 +582,13 @@ ALTER TABLE `categories`
 -- AUTO_INCREMENT de la tabla `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT de la tabla `order_details`
 --
 ALTER TABLE `order_details`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
 
 --
 -- AUTO_INCREMENT de la tabla `order_statuses`
@@ -497,13 +606,13 @@ ALTER TABLE `payment_methods`
 -- AUTO_INCREMENT de la tabla `photos`
 --
 ALTER TABLE `photos`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=63;
 
 --
 -- AUTO_INCREMENT de la tabla `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=77;
 
 --
 -- AUTO_INCREMENT de la tabla `roles`
@@ -515,7 +624,7 @@ ALTER TABLE `roles`
 -- AUTO_INCREMENT de la tabla `shipping_addresses`
 --
 ALTER TABLE `shipping_addresses`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT de la tabla `suppliers`
@@ -527,7 +636,7 @@ ALTER TABLE `suppliers`
 -- AUTO_INCREMENT de la tabla `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=72;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=114;
 
 --
 -- Restricciones para tablas volcadas

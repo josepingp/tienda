@@ -1,5 +1,5 @@
 <?php
-if (isset($msg)) echo $msg; var_dump($_FILES)?>
+if (isset($msg)) echo $msg;?>
 
 <section class="container-admin-form">
         <h2 id="container-admin-form-title">Registrar Nuevo producto</h2>
