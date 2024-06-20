@@ -18,12 +18,20 @@ class DirectionsRepository
         return $this->conexion->getAll();
     }
 
-    public function save(array $direction): void 
+    public function save(array $direction): ?int 
     {
         $fields = implode(",", array_keys($direction));
         $values = implode("', '", array_values($direction));
 
         $this->conexion->query("INSERT INTO shipping_addresses ($fields) VALUES ('$values')");
+        
+        return $this->conexion->lastId();
+    }
+
+    public function getDirectiponById($id): array
+    {
+        $this->conexion->query("SELECT * FROM shipping_addresses WHERE id = $id");
+        return $this->conexion->get();
     }
 
 }

@@ -17,6 +17,7 @@ use Controllers\CategoriesController;
 use Controllers\CheckoutController;
 
 session_start();
+ob_start();
 
 
 

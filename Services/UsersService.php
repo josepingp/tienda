@@ -37,4 +37,13 @@ class UsersService {
             return false;
         }
     }
+
+    public function updatePhone($user, $phone)
+    {
+        $userData = [
+            'phone' => $phone,
+            'id' => $user->getId()
+        ];
+        $this->save($userData);
+    }
 }

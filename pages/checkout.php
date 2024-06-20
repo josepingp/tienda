@@ -1,5 +1,3 @@
-<?php var_dump($_POST);
-var_dump($directions); ?>;
 
 <main id="checkout">
     <h1 class="tittle">Formulario de pago</h1>
@@ -34,6 +32,11 @@ var_dump($directions); ?>;
                     <label for="mail">
                         <p>Email</p>
                         <input type="email" id="mail" name="email" required>
+                    </label>
+
+                    <label for="birthdate">
+                        <p>F.Nacimiento</p>
+                        <input type="date" id="birthdate" name="birth_date" required>
                     </label>
                     <?php
                 }
@@ -124,10 +127,18 @@ var_dump($directions); ?>;
                 </div>
 
                 <div class="btns-container">
-                    <button>Atras</button>
+                    <button id="back">Atras</button>
                     <button type="submit">Pagar</button>
                 </div>
-
-        </form>
+                
+            </form>
     </section>
 </main>
+
+<script>
+    const backBtn = document.getElementById('back');
+
+    backBtn.addEventListener('click', function() {
+        window.history.back();
+    })
+</script>

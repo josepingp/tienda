@@ -359,5 +359,5 @@
         </section>
     </header>
     <?php if (isset($msg)) {
-        echo var_dump($msg);
+        echo $msg;
     } ?>

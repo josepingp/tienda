@@ -40,4 +40,9 @@ class Db {
     public function getAll(): array {
         return $this->response->fetch_all(MYSQLI_ASSOC);
     }
+
+    public function lastId(): int
+    {
+        return $this->conexion->insert_id;
+    }
 }
