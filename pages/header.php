@@ -244,7 +244,7 @@
                     <ul class="d-navbar-links">
                         <li class="d-navbar-link"><a href="/proyecto/">Home</a></li>
                         <li class="d-navbar-link drop">
-                            <a class="nav-d-link dropdown-toggle" href="/proyecto/products">
+                            <a class="nav-d-link" href="/proyecto/products">
                                 Productos
                                 <svg class="d-dropdown-arrow-down" xmlns="http://www.w3.org/2000/svg" width="20"
                                     height="20" viewBox="0 0 24 24">
@@ -272,7 +272,7 @@
                         if ((isset($user) && $_SESSION['rol'] == 1) or (isset($user) && $_SESSION['rol'] == 4)) {
                             ?>
                             <li class="d-navbar-link drop">
-                                <a class="nav-d-link dropdown-toggle">
+                                <a class="nav-d-link">
                                     Admin
                                     <svg class="d-dropdown-arrow-down" xmlns="http://www.w3.org/2000/svg" width="20"
                                         height="20" viewBox="0 0 24 24">
@@ -296,13 +296,17 @@
             </nav>
             <nav class="d-navbar2">
                 <section class="d-navbar2-container">
-                    <article>
-                        <div class="cart-counter">
-                            <?php if(isset($_SESSION['cart'])) echo count($_SESSION['cart']);?>
-                        </div>
-                        <a href="/proyecto/cart" class="cart-link"><svg xmlns="http://www.w3.org/2000/svg" width="40" height="40"
-                                viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                stroke-linejoin="round" class="icon-shopping-cart">
+                    <article id="h-cart-container">
+                        <?php
+                        echo '<div class="cart-counter">';
+                        if (isset($_SESSION['cart'])) {
+                            echo count($_SESSION['cart']);
+                        }
+                        echo '</div>';
+                        ?>
+                        <a href="/proyecto/cart" class="cart-link"><svg xmlns="http://www.w3.org/2000/svg" width="40"
+                                height="40" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round" class="icon-shopping-cart">
                                 <path stroke="none" d="M0 0h24v24H0z" fill="none" />
                                 <path d="M6 19m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" />
                                 <path d="M17 19m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" />

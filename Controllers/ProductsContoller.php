@@ -108,6 +108,26 @@ class ProductsContoller
             }
         }
 
+        public function detail($id)
+        {
+            $product = $this->productsService->findProductById($id);
+            $photos = $this->photosService->findAllPhotosByProductId($id);
+            
+            if ($this->authJWT->accessState()) {
+                $user = $this->service->findUserByEmail($_SESSION['email']);
+                $this->pages->render('productDetail', [
+                    'user' => $user,
+                    'product' => $product,
+                    'photos' => $photos
+                ]);
+            } else {
+                $this->pages->render('productDetail', [
+                    'product' => $product,
+                    'photos' => $photos
+                ]);
+            }
+        }
+
         public function addProductToCart() 
         {
             if (!isset($_SESSION['cart'])) {

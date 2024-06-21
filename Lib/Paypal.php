@@ -87,7 +87,7 @@ class Paypal
                 $items .= '{
                     "name": "'.$products[$i]['name'].'",
                     "description": "'.$products[$i]['name'].'",
-                    "quantity": "1",
+                    "quantity": "'.$products[$i]['quantity'].'",
                     "unit_amount": {
                         "currency_code": "EUR",
                         "value": "'.$products[$i]['price'] .'"
@@ -98,7 +98,7 @@ class Paypal
                 $items .= '{
                     "name": "'.$products[$i]['name'].'",
                     "description": "'.$products[$i]['name'].'",
-                    "quantity": "1",
+                    "quantity": "'.$products[$i]['quantity'].'",
                     "unit_amount": {
                         "currency_code": "EUR",
                         "value": "'.$products[$i]['price'] .'"

@@ -127,7 +127,7 @@
                 </div>
 
                 <div class="btns-container">
-                    <button id="back">Atras</button>
+                    <button class="back">Atras</button>
                     <button type="submit">Pagar</button>
                 </div>
                 
@@ -136,7 +136,7 @@
 </main>
 
 <script>
-    const backBtn = document.getElementById('back');
+    const backBtn = document.querySelector('.back');
 
     backBtn.addEventListener('click', function() {
         window.history.back();

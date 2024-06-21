@@ -25,6 +25,11 @@ class ProductsService
         return $this->repo->searchProductToList($search);
     }
 
+    public function findFeaturedProducts(): array
+    {
+        return $this->repo->findAllFeaturedProducts();
+    }
+
     public function findAllSuppliers(): array
     {
         return $this->repo->findAllSuppliers();
@@ -68,5 +73,10 @@ class ProductsService
     public function findProductsByIds($ids): ?array
     {
         return $this->repo->findProductsByIds($ids);
+    }
+
+    public function findProductById($id)
+    {
+        return $this->repo->findProductById($id);
     }
 }

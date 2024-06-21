@@ -51,6 +51,14 @@ Router::add('GET', '/products/:id', function ($category) {
     return (new ProductsContoller())->listCategory($category);
 });
 
+Router::add('GET', '/products/detail/:id', function ($id) {
+    return (new ProductsContoller())->detail($id);
+});
+
+Router::add('POST', '/products/detail/:id', function () {
+    return (new ProductsContoller())->addProductToCart();
+});
+
 Router::add('POST', '/products/:id', function () {
     return (new ProductsContoller())->addProductToCart();
 });

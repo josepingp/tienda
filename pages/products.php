@@ -33,25 +33,26 @@
         echo '<section class="products-c-l">';
     foreach ($products as $product) {
         echo '<div class="p-l-card">
-
-                <div class="p-l-c-imgs">';
+        <div class="p-l-c-imgs">';
         foreach ($product[0]['photos'] as $photo) {
             echo '<div class="p-l-c-img">
-                    <img src="./repo/product/' . $photo . '" alt="" width="500">
-                </div>';
+            <img src="./repo/product/' . $photo . '" alt="" width="500">
+            </div>';
         }
         echo '</div>
-            <div class="p-l-c-img-main">
-                <img src="./repo/product/' . $product[0]['main_photo'] . '" alt="" width="300">
-            </div>
-            <div class="p-l-c-data">
-                <div class="p-l-c-d-name">
-                    <p>' . $product[0]['name'] . '</p>
-                </div>
-                <div class="p-l-c-d-price">
-                    <p>' . $product[0]['price'] . '</p>
-                    <p>€</p>
-                </div>
+        <div class="p-l-c-img-main">
+        <img src="./repo/product/' . $product[0]['main_photo'] . '" alt="" width="300">
+        </div>
+        <a href="/proyecto/products/detail/'. $product[0]['id'] .'">
+        <div class="p-l-c-data">
+        <div class="p-l-c-d-name">
+        <p>' . $product[0]['name'] . '</p>
+        </div>
+        <div class="p-l-c-d-price">
+        <p>' . $product[0]['price'] . '</p>
+        <p>€</p>
+        </a>
+        </div>
                     <button class="p-l-c-btn" product_id="'. $product[0]['id'] .'">Añadir al carrito</button>
                 </div>
             </div>';
@@ -97,11 +98,10 @@
         
     function handleResize() {
         const windowWidth = window.innerWidth;
-        if (windowWidth > 780) menu.classList.remove('active');
+        if (windowWidth > 780) menu.classList.remove('active-p');
     }
     
     
     handleResize();
 })
-
 </script>

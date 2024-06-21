@@ -14,10 +14,10 @@ class ProductsRepository
         $this->conexion = new Db();
     }
 
-    public function findProductById($id): Product
+    public function findProductById($id): ?array
     {
         $this->conexion->query("SELECT * FROM products WHERE id = $id");
-        return $this->get();
+        return $this->conexion->get();
     }
 
     public function get(): ?Product

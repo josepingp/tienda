@@ -39,33 +39,28 @@ class CheckoutController
         $this->pages = new Pages();
         $this->authJWT = new AuthJWT();
         $this->paypal = new Paypal();
-
     }
 
     public function load()
     {
         $paymentMethods = $this->paymentMethodsService->getAll();
-        
-        if (isset($_SESSION['cart'])) {         
-            $products = $this->productsService->findProductsByIds($_SESSION['cart']);
+
+        if (isset($_SESSION['cart'])) {
+            $products = $this->cartService->countProducts();
             $total = $this->cartService->calculateTotal($products);
 
-            if ($this->authJWT->accessState()) {                
+            if ($this->authJWT->accessState()) {
                 $user = $this->service->findUserByEmail($_SESSION['email']);
                 $directions = $this->directionsService->getAllByUserId($user->getId());
 
-        
                 $this->pages->render('checkout', [
-                                                    'user' => $user,
-                                                    'total' => $total,
-                                                    'paymentMethods' => $paymentMethods,
-                                                    'directions' => $directions
-                                                ]);
+                    'user' => $user,
+                    'total' => $total,
+                    'paymentMethods' => $paymentMethods,
+                    'directions' => $directions
+                ]);
             } else {
-                $this->pages->render('checkout', [
-                                                    'total' => $total,
-                                                    'paymentMethods' => $paymentMethods,
-                                                    ]);
+                $this->pages->render('checkout', ['total' => $total, 'paymentMethods' => $paymentMethods]);
             }
         } else {
             header('Location: /proyecto/');
@@ -75,10 +70,10 @@ class CheckoutController
     public function pay()
     {
         if (isset($_SESSION['cart'])) {
-            $products = $this->productsService->findProductsByIds($_SESSION['cart']);
+            $products = $this->cartService->countProducts();
             $total = $this->cartService->calculateTotal($products);
-            
-            if ($this->authJWT->accessState()) {                
+
+            if ($this->authJWT->accessState()) {
                 $user = $this->service->findUserByEmail($_SESSION['email']);
             } else {
                 $user = [
@@ -93,61 +88,39 @@ class CheckoutController
                 ];
 
                 $this->service->save($user);
-                
+
                 $user = $this->service->findUserByEmail($_POST['email']);
             }
-            
-            if ($user->getPhone() == '' ) {
-                    $this->service->updatePhone($user, $_POST['phone']);
+
+            if ($user->getPhone() == '') {
+                if ($_POST['phone'] == '' || !isset($_POST['phone'])) {
+                    $this->load();
                 }
+                $this->service->updatePhone($user, $_POST['phone']);
+            }
 
-                if (!isset($_POST['shipping_address_id'])) {
-                    $directionId = $this->directionsService->createShippingAddress($user, $total);
-                    $direction = $_POST['street'] .', '. $_POST['city']; 
-                } else {
-                    $directionId = $_POST['shipping_address_id'];
-                    $direction = $this->directionsService->getDirectionById($directionId);
-                    $direction = $direction['street'] . ', ' . $direction['city']; 
-                }
-                
-                $orderCode = $this->orderService->orderCode();
-                $userId = $user->getId();
-                $orderDate = date('Y-m-d_H-i-s');
-                $paymentMethod = $_POST["payment_method"];
+            if (!isset($_POST['shipping_address_id'])) {
+                $directionId = $this->directionsService->createShippingAddress($user, $total);
+                $direction = $_POST['street'] . ', ' . $_POST['city'];
+            } else {
+                $directionId = $_POST['shipping_address_id'];
+                $direction = $this->directionsService->getDirectionById($directionId);
+                $direction = $direction['street'] . ', ' . $direction['city'];
+            }
 
-                $orderId = $this->orderService->create([
-                    'order_code' => $orderCode,
-                    'user_id' => $userId,
-                    'shipping_address_id' => $directionId,
-                    'order_date' => $orderDate,
-                    'order_total_amount' => $total,
-                    'payment_method_id' => $paymentMethod,
-                    'status_id' => 1
-                ]);
+            $orderId = $this->orderService->create($user, $directionId, $total);
+            $this->orderDetailsService->insertOrderDetails($products, $orderId);
 
-                $details = [];
-                foreach ($products as $product) {
-                    $details[] = [
-                        'order_id' => $orderId,
-                        'product_id' => $product['id'],
-                        'quantity' => 1,
-                        'unit_price' => $product['price'],
-                        'total_price' => $product['price'] * 1
-                    ];
-                }
+            $this->paypal->tokenControl();
+            $draft = $this->paypal->createDraftInvoice($user, $products, $orderId, $direction); 
+            if (isset($draft->href)) {
+                $msg = 'Compra realizada con éxito';
+                unset($_SESSION['cart']);
+            } else {
+                $msg = 'Ha ocuttido algún problema intentelo de nuevo más tarde.';
+            }
 
-                $this->orderDetailsService->createOrderDetails($details);
-
-                $this->paypal->tokenControl();
-                $draft = $this->paypal->createDraftInvoice($user, $products, $orderId, $direction);
-
-                $msg = '<h2>Su compra se ha realizado con éxito.</h2>';
-
-                echo $msg;
-
-
-
-            // header('Location: /proyecto/');
+            $this->pages->render('sucssesfullPurchase', ['msg' => $msg]);
         }
     }
 
